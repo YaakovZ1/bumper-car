@@ -5,19 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>באמפר קאר אילת</title>
     
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="באמפר קאר אילת" />
-    <meta property="og:description" content="המקום המושלם לבילוי עם המשפחה והחברים" />
-    <meta property="og:image" content="https://i.ibb.co/Z6473S0/logo-removebg-preview.png" />
-    <meta property="og:url" content="http://bumpercar.co.il" />
-    <meta property="og:type" content="website" />
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="https://i.ibb.co/Z6473S0/logo-removebg-preview.png">
-    <meta name="twitter:title" content="Bumper-Car-Eilat">
-    <meta name="twitter:description" content="Bumper Cars Activities In Eilat">
-    <meta name="twitter:image" content="https://i.ibb.co/Z6473S0/logo-removebg-preview.png">
-    
     <!-- Meta Tag for Robots -->
     <meta name="robots" content="index, follow">
     
@@ -54,6 +41,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 0.8rem 2rem;
+            position: relative;
         }
         
         header.scrolled {
@@ -117,7 +105,10 @@
             gap: 0.8rem;
             align-items: center;
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            margin-right: auto;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap; /* Prevent text wrapping */
         }
         
         .nav-links a {
@@ -131,6 +122,7 @@
             border-radius: 8px;
             display: flex;
             align-items: center;
+            white-space: nowrap; /* Prevent text wrapping */
         }
         
         .nav-links a i {
@@ -152,7 +144,12 @@
             transform: scale(0);
         }
         
-        .nav-links a:hover, .nav-links a.active {
+        .nav-links a:hover {
+            color: #ff7800;
+            background-color: rgba(255, 120, 0, 0.08);
+        }
+        
+        .nav-links a.active {
             color: #ff7800;
             background-color: rgba(255, 120, 0, 0.08);
         }
@@ -168,7 +165,6 @@
             color: white !important;
             border-radius: 50px;
             padding: 0.7rem 1.5rem !important;
-            margin-right: 0.5rem;
             box-shadow: 0 4px 15px rgba(255, 120, 0, 0.25);
             font-weight: 600 !important;
             transition: all 0.3s ease !important;
@@ -177,6 +173,7 @@
             display: inline-flex !important;
             align-items: center;
             gap: 8px;
+            white-space: nowrap; /* Prevent text wrapping */
         }
         
         .cta-button::before {
@@ -294,19 +291,13 @@
         }
         
         @media (max-width: 768px) {
-            header {
-                justify-content: space-between; /* Space elements evenly */
-            }
-            
             .hamburger {
                 display: flex;
-                margin-left: 1rem; /* Left side spacing (appears on right in RTL) */
-                position: relative; /* Enable positioning */
+                order: 1;
             }
             
             .logo-container {
-                margin: 0;
-                order: 2; /* Put in middle */
+                margin: 0 auto 0 0; /* Position logo to the left in RTL */
             }
             
             .nav-links {
@@ -328,6 +319,8 @@
                 gap: 0.3rem;
                 overflow-y: auto;
                 margin-right: 0;
+                left: auto; /* Reset left positioning for mobile */
+                transform: translateX(100%); /* Only slide from right */
             }
             
             .nav-links.active {
@@ -341,6 +334,7 @@
                 padding: 1rem;
                 font-size: 1.2rem;
                 border-radius: 8px;
+                white-space: nowrap; /* Prevent text wrapping */
             }
             
             .nav-links a i {
@@ -428,13 +422,6 @@
 </head>
 <body>
 <header id="main-header">
-    <!-- Hamburger Menu Icon (mobile only) - Now first in the DOM order -->
-    <div class="hamburger" id="hamburger">
-        <div class="hamburger-icon bar1"></div>
-        <div class="hamburger-icon bar2"></div>
-        <div class="hamburger-icon bar3"></div>
-    </div>
-    
     <!-- Logo -->
     <div class="logo-container">
         <a href="index.html">
@@ -442,25 +429,25 @@
         </a>
     </div>
     
-    <!-- Navigation Links -->
+    <!-- Navigation Links - with white-space: nowrap to prevent wrapping -->
     <nav class="nav-links" id="nav-links">
-        <a href="index.html" class="active">
+        <a href="index.html" id="home-link">
             <i class="fas fa-home"></i> דף הבית
         </a>
-        <a href="events.html">
+        <a href="events.html" id="events-link">
             <i class="fas fa-calendar-alt"></i> הזמנת אירוע
         </a>
-        <a href="qa.html">
+        <a href="qa.html" id="qa-link">
             <i class="fas fa-question-circle"></i> שאלות נפוצות
         </a>
-        <a href="gallery.html">
+        <a href="gallery.html" id="gallery-link">
             <i class="fas fa-images"></i> גלריה
         </a>
-        <a href="articles.html">
+        <a href="articles.html" id="articles-link">
             <i class="fas fa-newspaper"></i> כתבו עלינו
         </a>
-        <a href="contact.html">
-            <i class="fas fa-phone-alt"></i> יצירת קשר
+        <a href="contact.html" id="contact-link">
+            <i class="fas fa-phone-alt"></i> צור קשר
         </a>
         <a href="#" class="cta-button">
             <span>הזמינו כרטיסים</span>
@@ -487,82 +474,142 @@
         </div>
     </nav>
     
+    <!-- Hamburger Menu Icon (mobile only) -->
+    <div class="hamburger" id="hamburger">
+        <div class="hamburger-icon bar1"></div>
+        <div class="hamburger-icon bar2"></div>
+        <div class="hamburger-icon bar3"></div>
+    </div>
+    
     <!-- Overlay for mobile menu background -->
     <div class="menu-overlay" id="menu-overlay"></div>
 </header>
 
 <script>
-    // Get elements
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-    const menuOverlay = document.getElementById('menu-overlay');
-    const header = document.getElementById('main-header');
-    
-    // Toggle menu function
-    function toggleMenu() {
-        navLinks.classList.toggle('active');
-        hamburger.classList.toggle('open');
-        menuOverlay.classList.toggle('active');
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get elements
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        const menuOverlay = document.getElementById('menu-overlay');
+        const header = document.getElementById('main-header');
         
-        // Prevent scrolling when menu is open
-        if (navLinks.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
+        // Toggle menu function
+        function toggleMenu() {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('open');
+            menuOverlay.classList.toggle('active');
+            
+            // Prevent scrolling when menu is open
+            if (navLinks.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
         }
-    }
-    
-    // Toggle menu when hamburger is clicked
-    hamburger.addEventListener('click', toggleMenu);
-    
-    // Close menu when overlay is clicked
-    menuOverlay.addEventListener('click', toggleMenu);
-    
-    // Close menu when link is clicked
-    const navLinksItems = document.querySelectorAll('.nav-links a');
-    navLinksItems.forEach(link => {
-        link.addEventListener('click', () => {
-            // Only close if on mobile (hamburger is visible)
-            if (window.getComputedStyle(hamburger).display !== 'none') {
+        
+        // Toggle menu when hamburger is clicked
+        hamburger.addEventListener('click', toggleMenu);
+        
+        // Close menu when overlay is clicked
+        menuOverlay.addEventListener('click', toggleMenu);
+        
+        // Close menu when link is clicked
+        const navLinksItems = document.querySelectorAll('.nav-links a');
+        navLinksItems.forEach(link => {
+            link.addEventListener('click', () => {
+                // Only close if on mobile (hamburger is visible)
+                if (window.getComputedStyle(hamburger).display !== 'none') {
+                    toggleMenu();
+                }
+            });
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
                 toggleMenu();
             }
         });
-    });
-    
-    // Handle window resize
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
-            toggleMenu();
-        }
-    });
-    
-    // Add scroll effect to header
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 10) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-    
-    // Set active link based on current page
-    (function setActiveLink() {
-        const currentPath = window.location.pathname;
-        const links = document.querySelectorAll('.nav-links a');
         
-        links.forEach(link => {
-            const href = link.getAttribute('href');
-            if (currentPath.endsWith(href) || 
-                (href === 'index.html' && (currentPath.endsWith('/') || 
-                currentPath.endsWith('.co.il')))) {
-                link.classList.add('active');
-            } else if (link.classList.contains('cta-button')) {
-                // Don't remove active from CTA
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                header.classList.add('scrolled');
             } else {
-                link.classList.remove('active');
+                header.classList.remove('scrolled');
             }
         });
-    })();
+        
+        // UPDATED: Set active nav link based on current page URL
+        function updateActiveNavLink() {
+            // First remove active class from all links
+            const allNavLinks = document.querySelectorAll('.nav-links a:not(.cta-button)');
+            allNavLinks.forEach(link => link.classList.remove('active'));
+            
+            // Get the current path from the URL
+            const pathname = window.location.pathname;
+            
+            // Map to store page identifiers and their corresponding link IDs
+            const pageMap = {
+                'index.html': 'home-link',
+                'events.html': 'events-link',
+                'qa.html': 'qa-link', 
+                'gallery.html': 'gallery-link',
+                'articles.html': 'articles-link',
+                'contact.html': 'contact-link'
+            };
+            
+            // Find which page we're on
+            let currentPage = null;
+            
+            // Check for home page (root URL)
+            if (pathname === '/' || pathname === '' || pathname.endsWith('.co.il/') || pathname.endsWith('.co.il')) {
+                currentPage = 'index.html';
+            } else {
+                // For other pages, check which page identifier is in the URL
+                for (const page in pageMap) {
+                    if (pathname.includes(page)) {
+                        currentPage = page;
+                        break;
+                    }
+                }
+                
+                // If no match, try matching by page name without extension
+                if (!currentPage) {
+                    for (const page in pageMap) {
+                        const pageName = page.split('.')[0];
+                        if (pathname.includes(pageName)) {
+                            currentPage = page;
+                            break;
+                        }
+                    }
+                }
+            }
+            
+            // If we found a current page, set its link as active
+            if (currentPage && pageMap[currentPage]) {
+                const activeLink = document.getElementById(pageMap[currentPage]);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                    console.log('Set active link:', pageMap[currentPage]);
+                }
+            } else {
+                // Default to home if no match
+                const homeLink = document.getElementById('home-link');
+                if (homeLink) {
+                    homeLink.classList.add('active');
+                    console.log('No match found, defaulting to home');
+                }
+            }
+        }
+        
+        // Run on page load
+        updateActiveNavLink();
+        
+        // Also run when the URL changes (for single-page applications)
+        window.addEventListener('popstate', updateActiveNavLink);
+    });
 </script>
 </body>
 </html>
