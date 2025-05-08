@@ -18,6 +18,9 @@
     <meta name="twitter:description" content="Bumper Cars Activities In Eilat">
     <meta name="twitter:image" content="https://i.ibb.co/Z6473S0/logo-removebg-preview.png">
     
+    <!-- Meta Tag for Robots -->
+    <meta name="robots" content="index, follow">
+    
     <!-- Import Heebo font from Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
@@ -33,10 +36,8 @@
         }
         
         body {
+            margin: 0;
             font-family: 'Heebo', sans-serif;
-            direction: rtl;
-            text-align: right;
-            overflow-x: hidden;
         }
 
         /* Header Styles */
@@ -47,407 +48,521 @@
             top: 0;
             left: 0;
             right: 0;
-            z-index: 50;
-            height: 80px;
-            transition: height 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .header-container {
-            max-width: 1400px;
-            height: 100%;
-            margin: 0 auto;
-            padding: 0 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0.8rem 2rem;
+        }
+        
+        header.scrolled {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
         }
         
         /* Logo styles */
-        .logo {
-            height: 70px;
-            position: relative;
-            z-index: 60;
-        }
-        
-        .logo img {
-            height: 100%;
-            border-radius: 50%;
-            transition: transform 0.3s ease;
-        }
-        
-        .logo:hover img {
-            transform: scale(1.05);
-        }
-        
-        /* Desktop Navigation */
-        .desktop-nav {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
+        .logo-container {
             display: flex;
-            gap: 10px;
+            align-items: center;
+            z-index: 10;
+            position: relative;
         }
         
-        .desktop-nav a {
-            color: #333;
+        .logo-container a {
+            display: flex;
+            align-items: center;
             text-decoration: none;
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-weight: 500;
-            font-size: 18px;
+        }
+        
+        .logo-container img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 120, 0, 0.2);
             transition: all 0.3s ease;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo-container::before {
+            content: '';
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #ff7800, #ff9635);
+            border-radius: 50%;
+            z-index: 1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            opacity: 0.2;
+            transition: all 0.3s ease;
+        }
+        
+        .logo-container:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 0.7;
+        }
+        
+        .logo-container:hover img {
+            transform: scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Navigation styles */
+        .nav-links {
+            display: flex;
+            gap: 0.8rem;
+            align-items: center;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            margin-right: auto;
+        }
+        
+        .nav-links a {
+            color: #2d2d2d;
+            text-decoration: none;
+            padding: 0.7rem 1rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+            border-radius: 8px;
             display: flex;
             align-items: center;
         }
         
-        .desktop-nav a i {
-            margin-left: 8px;
+        .nav-links a i {
+            margin-left: 0.5rem;
+            font-size: 0.9rem;
         }
         
-        .desktop-nav a:hover {
-            background-color: rgba(255, 120, 0, 0.1);
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 7px;
+            right: 10px;
+            width: 5px;
+            height: 5px;
+            background: #ff7800;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: scale(0);
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
             color: #ff7800;
+            background-color: rgba(255, 120, 0, 0.08);
         }
         
-        /* CTA Button */
+        .nav-links a:hover::after, .nav-links a.active::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        /* Add buy tickets CTA button */
         .cta-button {
             background: linear-gradient(135deg, #ff7800, #ff9635);
-            color: white;
-            padding: 10px 20px;
+            color: white !important;
             border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            box-shadow: 0 4px 12px rgba(255, 120, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: inline-flex;
+            padding: 0.7rem 1.5rem !important;
+            margin-right: 0.5rem;
+            box-shadow: 0 4px 15px rgba(255, 120, 0, 0.25);
+            font-weight: 600 !important;
+            transition: all 0.3s ease !important;
+            position: relative;
+            overflow: hidden;
+            display: inline-flex !important;
             align-items: center;
             gap: 8px;
-            z-index: 60;
-            position: relative;
         }
         
-        .cta-button i {
-            font-size: 16px;
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ff9635, #ff7800);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 0;
         }
         
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(255, 120, 0, 0.3);
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 20px rgba(255, 120, 0, 0.35) !important;
         }
         
-        /* Hamburger Menu */
-        .hamburger {
-            width: 30px;
-            height: 22px;
-            position: relative;
-            cursor: pointer;
-            display: none;
-            z-index: 60;
-        }
-        
-        .hamburger span {
-            display: block;
-            position: absolute;
-            height: 3px;
-            width: 100%;
-            background: #333;
-            border-radius: 3px;
+        .cta-button:hover::before {
             opacity: 1;
-            right: 0;
-            transform: rotate(0deg);
-            transition: .25s ease-in-out;
         }
         
-        .hamburger span:nth-child(1) {
-            top: 0px;
+        .cta-button span {
+            position: relative;
+            z-index: 1;
         }
         
-        .hamburger span:nth-child(2) {
-            top: 9px;
+        .cta-button i {
+            position: relative;
+            z-index: 1;
+            transition: transform 0.2s ease;
         }
         
-        .hamburger span:nth-child(3) {
-            top: 18px;
+        .cta-button:hover i {
+            transform: translateX(-3px);
         }
         
-        .hamburger.open span:nth-child(1) {
-            top: 9px;
-            transform: rotate(135deg);
-            background: #ff7800;
+        /* Hamburger styles */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 28px;
+            height: 20px;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.4s ease;
         }
         
-        .hamburger.open span:nth-child(2) {
-            opacity: 0;
-            right: -60px;
-        }
-        
-        .hamburger.open span:nth-child(3) {
-            top: 9px;
-            transform: rotate(-135deg);
-            background: #ff7800;
-        }
-        
-        /* Mobile Menu */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -320px; /* Start off-screen */
-            width: 320px;
-            height: 100vh;
-            background: white;
-            z-index: 59;
-            padding: 100px 30px 30px;
-            box-shadow: -5px 0 25px rgba(0,0,0,0.15);
-            transition: right 0.3s ease-in-out;
-            overflow-y: auto;
-        }
-        
-        .mobile-menu.open {
-            right: 0;
-        }
-        
-        .mobile-menu a {
-            display: block;
-            color: #333;
-            text-decoration: none;
-            padding: 15px;
-            font-size: 18px;
-            font-weight: 500;
-            border-radius: 8px;
-            margin-bottom: 10px;
+        .hamburger-icon {
+            width: 100%;
+            height: 2px;
+            background-color: #2d2d2d;
+            border-radius: 5px;
             transition: all 0.3s ease;
         }
         
-        .mobile-menu a i {
-            margin-left: 10px;
-            width: 20px;
-            text-align: center;
+        /* Open state for hamburger */
+        .hamburger.open .bar1 {
+            transform: rotate(-45deg) translate(-3px, 6px);
+            background-color: #ff7800;
         }
         
-        .mobile-menu a:hover, .mobile-menu a.active {
-            background-color: rgba(255, 120, 0, 0.1);
-            color: #ff7800;
+        .hamburger.open .bar2 {
+            opacity: 0;
+            transform: translateX(-10px);
         }
         
-        .mobile-menu .cta-button {
-            display: inline-flex;
-            width: 100%;
-            justify-content: center;
-            margin-top: 20px;
+        .hamburger.open .bar3 {
+            transform: rotate(45deg) translate(-3px, -6px);
+            background-color: #ff7800;
         }
         
-        .mobile-social {
-            margin-top: 40px;
-            border-top: 1px solid #eee;
-            padding-top: 20px;
-        }
-        
-        .mobile-social h4 {
-            font-size: 16px;
-            color: #777;
-            margin-bottom: 15px;
-            font-weight: 500;
-            text-align: center;
-        }
-        
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-        
-        .social-icons a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 120, 0, 0.1);
-            color: #ff7800;
-            border-radius: 50%;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .social-icons a:hover {
-            background: #ff7800;
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 4px 10px rgba(255, 120, 0, 0.2);
-        }
-        
-        /* Overlay */
-        .overlay {
+        /* Menu overlay for mobile */
+        .menu-overlay {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.5);
-            z-index: 58;
+            background-color: rgba(0, 0, 0, 0.5);
             opacity: 0;
-            visibility: hidden;
+            pointer-events: none;
             transition: opacity 0.3s ease;
+            z-index: 5;
         }
         
-        .overlay.active {
+        .menu-overlay.active {
             opacity: 1;
-            visibility: visible;
+            pointer-events: all;
         }
         
-        /* Responsive Styles */
-        @media (max-width: 1100px) {
-            .desktop-nav a {
-                font-size: 16px;
-                padding: 6px 10px;
+        /* Mobile social links */
+        .mobile-social {
+            display: none; /* Hidden by default, will show in mobile view */
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            header {
+                padding: 0.7rem 1.5rem;
+            }
+            
+            .logo-container img {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .nav-links a {
+                font-size: 1rem;
+                padding: 0.6rem 0.8rem;
             }
         }
         
-        @media (max-width: 920px) {
-            .desktop-nav, .header-container .cta-button {
-                display: none;
+        @media (max-width: 768px) {
+            header {
+                justify-content: space-between; /* Space elements evenly */
             }
             
             .hamburger {
-                display: block;
+                display: flex;
+                margin-left: 1rem; /* Left side spacing (appears on right in RTL) */
+                position: relative; /* Enable positioning */
             }
             
-            .header-container {
-                justify-content: space-between;
+            .logo-container {
+                margin: 0;
+                order: 2; /* Put in middle */
+            }
+            
+            .nav-links {
+                position: fixed;
+                flex-direction: column;
+                background: white;
+                width: 80%;
+                max-width: 300px;
+                top: 0;
+                bottom: 0;
+                right: 0; /* Position from right for RTL */
+                padding: 5rem 1.5rem 2rem;
+                box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+                transform: translateX(100%);
+                opacity: 0;
+                pointer-events: none;
+                transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                z-index: 6;
+                gap: 0.3rem;
+                overflow-y: auto;
+                margin-right: 0;
+            }
+            
+            .nav-links.active {
+                transform: translateX(0);
+                opacity: 1;
+                pointer-events: all;
+            }
+            
+            .nav-links a {
+                width: 100%;
+                padding: 1rem;
+                font-size: 1.2rem;
+                border-radius: 8px;
+            }
+            
+            .nav-links a i {
+                margin-left: 0;
+                margin-right: 10px;
+                width: 24px;
+                text-align: center;
+            }
+            
+            .nav-links a:not(:last-child)::after {
+                right: auto;
+                left: 15px;
+            }
+            
+            .cta-button {
+                margin: 1rem 0 0.5rem;
+                width: 100%;
+                justify-content: center;
+                padding: 0.8rem !important;
+            }
+            
+            /* Show mobile social in mobile view */
+            .mobile-social {
+                display: block;
+                margin-top: 2rem;
+                border-top: 1px solid rgba(0, 0, 0, 0.1);
+                padding-top: 1.5rem;
+                width: 100%;
+            }
+            
+            .mobile-social-title {
+                font-size: 0.9rem;
+                color: #666;
+                margin-bottom: 1rem;
+            }
+            
+            .social-icons {
+                display: flex;
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .social-icons a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                background: rgba(255, 120, 0, 0.1);
+                border-radius: 50%;
+                color: #ff7800;
+                font-size: 1.2rem;
+                transition: all 0.3s ease;
+                padding: 0;
+            }
+            
+            .social-icons a:hover {
+                background: #ff7800;
+                color: white;
+                transform: translateY(-3px);
+            }
+            
+            .social-icons a::after {
+                display: none;
             }
         }
         
         @media (max-width: 480px) {
-            .logo {
-                height: 55px;
+            header {
+                padding: 0.5rem 1rem;
             }
             
-            .mobile-menu {
-                width: 280px;
-                right: -280px;
+            .logo-container img {
+                width: 65px;
+                height: 65px;
+            }
+            
+            .logo-container::before {
+                width: 75px;
+                height: 75px;
             }
         }
     </style>
 </head>
 <body>
-    <header id="header">
-        <div class="header-container">
-            <!-- Logo -->
-            <a href="index.html" class="logo">
-                <img src="assets/logo.png" alt="באמפר קאר אילת לוגו">
-            </a>
-            
-            <!-- Desktop Navigation -->
-            <nav class="desktop-nav">
-                <a href="index.html" class="active"><i class="fas fa-home"></i> דף הבית</a>
-                <a href="events.html"><i class="fas fa-calendar-alt"></i> הזמנת אירוע</a>
-                <a href="qa.html"><i class="fas fa-question-circle"></i> שאלות נפוצות</a>
-                <a href="gallery.html"><i class="fas fa-images"></i> גלריה</a>
-                <a href="articles.html"><i class="fas fa-newspaper"></i> כתבו עלינו</a>
-                <a href="contact.html"><i class="fas fa-phone-alt"></i> יצירת קשר</a>
-            </nav>
-            
-            <!-- CTA Button (Desktop) -->
-            <a href="#" class="cta-button">
-                הזמינו כרטיסים <i class="fas fa-ticket-alt"></i>
-            </a>
-            
-            <!-- Hamburger Menu (Mobile) -->
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </header>
-    
-    <!-- Mobile Menu (Slides in from right) -->
-    <div class="mobile-menu" id="mobile-menu">
-        <a href="index.html" class="active"><i class="fas fa-home"></i> דף הבית</a>
-        <a href="events.html"><i class="fas fa-calendar-alt"></i> הזמנת אירוע</a>
-        <a href="qa.html"><i class="fas fa-question-circle"></i> שאלות נפוצות</a>
-        <a href="gallery.html"><i class="fas fa-images"></i> גלריה</a>
-        <a href="articles.html"><i class="fas fa-newspaper"></i> כתבו עלינו</a>
-        <a href="contact.html"><i class="fas fa-phone-alt"></i> יצירת קשר</a>
-        
-        <!-- CTA Button (Mobile) -->
-        <a href="#" class="cta-button">
-            הזמינו כרטיסים <i class="fas fa-ticket-alt"></i>
-        </a>
-        
-        <!-- Social Media Links -->
-        <div class="mobile-social">
-            <h4>עקבו אחרינו</h4>
-            <div class="social-icons">
-                <a href="#" aria-label="פייסבוק"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="אינסטגרם"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="וואטסאפ"><i class="fab fa-whatsapp"></i></a>
-                <a href="#" aria-label="טיקטוק"><i class="fab fa-tiktok"></i></a>
-            </div>
-        </div>
+<header id="main-header">
+    <!-- Hamburger Menu Icon (mobile only) - Now first in the DOM order -->
+    <div class="hamburger" id="hamburger">
+        <div class="hamburger-icon bar1"></div>
+        <div class="hamburger-icon bar2"></div>
+        <div class="hamburger-icon bar3"></div>
     </div>
     
-    <!-- Overlay Background -->
-    <div class="overlay" id="overlay"></div>
+    <!-- Logo -->
+    <div class="logo-container">
+        <a href="index.html">
+            <img src="assets/logo.png" alt="באמפר קאר אילת לוגו">
+        </a>
+    </div>
     
-    <script>
-        // Elements
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const overlay = document.getElementById('overlay');
-        const header = document.getElementById('header');
+    <!-- Navigation Links -->
+    <nav class="nav-links" id="nav-links">
+        <a href="index.html" class="active">
+            <i class="fas fa-home"></i> דף הבית
+        </a>
+        <a href="events.html">
+            <i class="fas fa-calendar-alt"></i> הזמנת אירוע
+        </a>
+        <a href="qa.html">
+            <i class="fas fa-question-circle"></i> שאלות נפוצות
+        </a>
+        <a href="gallery.html">
+            <i class="fas fa-images"></i> גלריה
+        </a>
+        <a href="articles.html">
+            <i class="fas fa-newspaper"></i> כתבו עלינו
+        </a>
+        <a href="contact.html">
+            <i class="fas fa-phone-alt"></i> יצירת קשר
+        </a>
+        <a href="#" class="cta-button">
+            <span>הזמינו כרטיסים</span>
+            <i class="fas fa-ticket-alt"></i>
+        </a>
         
-        // Toggle mobile menu
-        function toggleMenu() {
-            hamburger.classList.toggle('open');
-            
-            if (hamburger.classList.contains('open')) {
-                mobileMenu.classList.add('open');
-                overlay.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            } else {
-                mobileMenu.classList.remove('open');
-                overlay.classList.remove('active');
-                document.body.style.overflow = '';
-            }
+        <!-- Mobile social links - only visible in mobile view -->
+        <div class="mobile-social">
+            <div class="mobile-social-title">עקבו אחרינו</div>
+            <div class="social-icons">
+                <a href="#" aria-label="פייסבוק">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" aria-label="אינסטגרם">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" aria-label="וואטסאפ">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#" aria-label="טיקטוק">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Overlay for mobile menu background -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+</header>
+
+<script>
+    // Get elements
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    const menuOverlay = document.getElementById('menu-overlay');
+    const header = document.getElementById('main-header');
+    
+    // Toggle menu function
+    function toggleMenu() {
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('open');
+        menuOverlay.classList.toggle('active');
+        
+        // Prevent scrolling when menu is open
+        if (navLinks.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
         }
-        
-        // Event listeners
-        hamburger.addEventListener('click', toggleMenu);
-        overlay.addEventListener('click', toggleMenu);
-        
-        // Close menu when clicking links
-        const mobileLinks = document.querySelectorAll('.mobile-menu a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (hamburger.classList.contains('open')) {
-                    toggleMenu();
-                }
-            });
+    }
+    
+    // Toggle menu when hamburger is clicked
+    hamburger.addEventListener('click', toggleMenu);
+    
+    // Close menu when overlay is clicked
+    menuOverlay.addEventListener('click', toggleMenu);
+    
+    // Close menu when link is clicked
+    const navLinksItems = document.querySelectorAll('.nav-links a');
+    navLinksItems.forEach(link => {
+        link.addEventListener('click', () => {
+            // Only close if on mobile (hamburger is visible)
+            if (window.getComputedStyle(hamburger).display !== 'none') {
+                toggleMenu();
+            }
         });
+    });
+    
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+            toggleMenu();
+        }
+    });
+    
+    // Add scroll effect to header
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 10) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+    
+    // Set active link based on current page
+    (function setActiveLink() {
+        const currentPath = window.location.pathname;
+        const links = document.querySelectorAll('.nav-links a');
         
-        // Highlight active page
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-        const desktopLinks = document.querySelectorAll('.desktop-nav a');
-        
-        desktopLinks.forEach(link => {
+        links.forEach(link => {
             const href = link.getAttribute('href');
-            if (href === currentPage) {
+            if (currentPath.endsWith(href) || 
+                (href === 'index.html' && (currentPath.endsWith('/') || 
+                currentPath.endsWith('.co.il')))) {
                 link.classList.add('active');
+            } else if (link.classList.contains('cta-button')) {
+                // Don't remove active from CTA
             } else {
                 link.classList.remove('active');
             }
         });
-        
-        mobileLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            if (href === currentPage) {
-                link.classList.add('active');
-            } else {
-                link.classList.remove('active');
-            }
-        });
-    </script>
+    })();
+</script>
 </body>
 </html>
