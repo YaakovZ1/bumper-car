@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>באמפר קאר אילת | דף הבית</title>
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" href="assets/favicons/favicon.ico" type="image/x-icon">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous">
+
+		<!-- Accessibility Script -->
+	<script src="https://cdn.enable.co.il/licenses/enable-L304761e05ykaodz-0924-63383/init.js"></script>
+	<style>
+        body {
+            background-color: #f7fafc;
+            color: #2d3748;
+            font-family: Arial, sans-serif;
+        }
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 2rem;
+        }
+        .article-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .article-card:hover {
+            transform: translateY(-5px);
+        }
+        .article-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #ffa500; 
+            border-radius: 20px; /* Consistent with card */
+        }
+        .article-content {
+            padding: 1.5rem;
+        }
+        .article-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .article-date {
+            font-size: 0.875rem;
+            color: #718096;
+            margin-bottom: 0.5rem;
+        }
+        .article-excerpt {
+            font-size: 1rem;
+            color: #4a5568;
+        }
+        @media (max-width: 1024px) {
+            .article-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 640px) {
+            .article-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Custom Header -->
+    <div id="header"></div>
+
+    <!-- Article Grid Section -->
+    <section class="container mx-auto py-8">
+        <div id="articles-container" class="article-grid">
+            <!-- Articles will be loaded here dynamically -->
+        </div>
+    </section>
+
+    <!-- Custom Footer -->
+    <div id="footer"></div>
+
+    <script>
+        // Load header
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                // Insert the fetched header HTML into the element with id="header"
+                document.getElementById('header').innerHTML = data;
+
+                // Now that the header is loaded, select the hamburger and nav-links elements
+                const hamburger = document.querySelector('.hamburger');
+                const navLinks = document.querySelector('.nav-links');
+
+                // Check if both hamburger and navLinks exist, then add event listeners
+                if (hamburger && navLinks) {
+                    // Toggle the 'active' and 'open' classes when the hamburger is clicked
+                    hamburger.addEventListener('click', () => {
+                        navLinks.classList.toggle('active');
+                        hamburger.classList.toggle('open');
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error loading header:', error);
+            });
+
+        // Load footer
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
+
+        // Fetch and display articles
+        fetch('fetch_articles.php')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('articles-container').innerHTML = data;
+            })
+            .catch(error => console.error('Error fetching articles:', error));
+    </script>
+</body>
+</html>

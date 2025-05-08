@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>באמפר קאר אילת | יצירת קשר</title>
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" href="assets/favicons/favicon.ico" type="image/x-icon">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous">
+    <!-- Slick Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
+	<script src="https://cdn.enable.co.il/licenses/enable-L304761e05ykaodz-0924-63383/init.js"></script>
+</head>
+
+    <!-- Header -->
+    <div id="header"></div>
+
+<body class="bg-gray-100 text-gray-900">
+    <!-- Contact Section -->
+    <section class="container mx-auto py-20 text-center">
+        <h1 class="text-5xl font-bold mb-6 text-coral">יצירת קשר</h1>
+        <div class="bg-white text-gray-800 p-8 rounded-lg shadow-lg max-w-xl mx-auto text-right" dir="rtl">
+            <form id="contactForm" class="mt-8" action="send_email.php" method="POST">
+                <input type="hidden" name="form_type" value="contact"> <!-- Hidden input to specify form type -->
+                <div class="mb-4">
+                    <label for="name" class="block mb-2 text-xl font-bold text-darkorange text-right">שם מלא</label>
+                    <input type="text" id="name" name="name" class="w-full p-4 rounded-lg bg-gray-100" placeholder="השם שלך" required>
+                </div>
+                <div class="mb-4">
+                    <label for="phone" class="block mb-2 text-xl font-bold text-darkorange text-right">מספר טלפון</label>
+                    <input type="tel" id="phone" name="phone" class="w-full p-4 rounded-lg bg-gray-100 text-right" placeholder="מספר הטלפון שלך" dir="rtl" required>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block mb-2 text-xl font-bold text-darkorange text-right">אימייל</label>
+                    <input type="email" id="email" name="email" class="w-full p-4 rounded-lg bg-gray-100" placeholder="האימייל שלך" required>
+                </div>
+                <div class="mb-4">
+                    <label for="message" class="block mb-2 text-xl font-bold text-darkorange text-right">הודעה</label>
+                    <textarea id="message" name="message" rows="4" class="w-full p-4 rounded-lg bg-gray-100" placeholder="ההודעה שלך" required></textarea>
+                </div>
+                <div class="flex justify-center mt-8">
+                    <button type="submit" class="text-white font-bold py-2 px-6 rounded-full transition duration-300 ease-in-out shadow-lg"
+                        style="background: linear-gradient(to right, #FFC107, #FF9800, #FF5722);">
+                        שלח טופס
+                    </button>
+                </div>
+            </form>            
+            <!-- Success Message -->
+            <div id="successMessage" class="hidden mt-8 p-4 rounded-full shadow-lg text-center text-xl font-bold text-white"
+                style="background: linear-gradient(to right, #FFC107, #FF9800, #FF5722);">
+                הטופס נשלח בהצלחה!
+            </div>
+        </div>
+    </section>    
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+	<script>
+		// Load header
+		fetch('header.html')
+			.then(response => response.text())
+			.then(data => {
+				// Insert the fetched header HTML into the element with id="header"
+				document.getElementById('header').innerHTML = data;
+
+				// Now that the header is loaded, select the hamburger and nav-links elements
+				const hamburger = document.querySelector('.hamburger');
+				const navLinks = document.querySelector('.nav-links');
+
+				// Check if both hamburger and navLinks exist, then add event listeners
+				if (hamburger && navLinks) {
+					// Toggle the 'active' and 'open' classes when the hamburger is clicked
+					hamburger.addEventListener('click', () => {
+						navLinks.classList.toggle('active');
+						hamburger.classList.toggle('open');
+					});
+				}
+			})
+			.catch(error => {
+				console.error('Error loading header:', error);
+			});
+
+
+		// Load footer
+		fetch('footer.html')
+			.then(response => response.text())
+			.then(data => {
+				document.getElementById('footer').innerHTML = data;
+			})
+			.catch(error => {
+				console.error('Error loading footer:', error);
+			});
+
+        document.getElementById('contactForm').addEventListener('submit', async function(event) {
+            event.preventDefault();  // Prevent the default form submission
+
+            // Get form data
+            const formData = new FormData(this);
+
+            try {
+                const response = await fetch('send_email.php', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (result.status === 'success') {
+                    document.getElementById('successMessage').classList.remove('hidden'); // Show success message
+                    document.getElementById('contactForm').reset();  // Clear the form
+                } else {
+                    alert(result.message || 'Failed to send the message. Please try again.');
+                }
+            } catch (error) {
+                alert('An error occurred. Please try again later.');
+                console.error('Error:', error);
+            }
+        });
+    </script>
+
+    <style>
+    /* Success Message Animation */
+    #successMessage {
+        background: linear-gradient(270deg, #FFC107, #FF9800, #FF5722, #FF9800);
+        background-size: 600% 600%;
+        animation: gradientMove 3s ease infinite;
+    }
+
+    @keyframes gradientMove {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    #successMessage.fade-in {
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    #successMessage.fade-out {
+        animation: fadeOut 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+            transform: scale(1);
+        }
+        to {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+    }
+    </style>
+</body>
+</html>

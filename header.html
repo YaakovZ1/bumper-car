@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>באמפר קאר אילת</title>
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="באמפר קאר אילת" />
+    <meta property="og:description" content="המקום המושלם לבילוי עם המשפחה והחברים" />
+    <meta property="og:image" content="https://i.ibb.co/Z6473S0/logo-removebg-preview.png" />
+    <meta property="og:url" content="http://bumpercar.co.il" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="https://i.ibb.co/Z6473S0/logo-removebg-preview.png">
+    <meta name="twitter:title" content="Bumper-Car-Eilat">
+    <meta name="twitter:description" content="Bumper Cars Activities In Eilat">
+    <meta name="twitter:image" content="https://i.ibb.co/Z6473S0/logo-removebg-preview.png">
+    
+    <!-- Import Heebo font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Heebo', sans-serif;
+            direction: rtl;
+            text-align: right;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            height: 80px;
+            transition: height 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .header-container {
+            max-width: 1400px;
+            height: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* Logo styles */
+        .logo {
+            height: 70px;
+            position: relative;
+            z-index: 60;
+        }
+        
+        .logo img {
+            height: 100%;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Desktop Navigation */
+        .desktop-nav {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            gap: 10px;
+        }
+        
+        .desktop-nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .desktop-nav a i {
+            margin-left: 8px;
+        }
+        
+        .desktop-nav a:hover {
+            background-color: rgba(255, 120, 0, 0.1);
+            color: #ff7800;
+        }
+        
+        /* CTA Button */
+        .cta-button {
+            background: linear-gradient(135deg, #ff7800, #ff9635);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(255, 120, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 60;
+            position: relative;
+        }
+        
+        .cta-button i {
+            font-size: 16px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255, 120, 0, 0.3);
+        }
+        
+        /* Hamburger Menu */
+        .hamburger {
+            width: 30px;
+            height: 22px;
+            position: relative;
+            cursor: pointer;
+            display: none;
+            z-index: 60;
+        }
+        
+        .hamburger span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: #333;
+            border-radius: 3px;
+            opacity: 1;
+            right: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+        
+        .hamburger span:nth-child(1) {
+            top: 0px;
+        }
+        
+        .hamburger span:nth-child(2) {
+            top: 9px;
+        }
+        
+        .hamburger span:nth-child(3) {
+            top: 18px;
+        }
+        
+        .hamburger.open span:nth-child(1) {
+            top: 9px;
+            transform: rotate(135deg);
+            background: #ff7800;
+        }
+        
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+            right: -60px;
+        }
+        
+        .hamburger.open span:nth-child(3) {
+            top: 9px;
+            transform: rotate(-135deg);
+            background: #ff7800;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -320px; /* Start off-screen */
+            width: 320px;
+            height: 100vh;
+            background: white;
+            z-index: 59;
+            padding: 100px 30px 30px;
+            box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+            transition: right 0.3s ease-in-out;
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.open {
+            right: 0;
+        }
+        
+        .mobile-menu a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: 500;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu a i {
+            margin-left: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .mobile-menu a:hover, .mobile-menu a.active {
+            background-color: rgba(255, 120, 0, 0.1);
+            color: #ff7800;
+        }
+        
+        .mobile-menu .cta-button {
+            display: inline-flex;
+            width: 100%;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .mobile-social {
+            margin-top: 40px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        
+        .mobile-social h4 {
+            font-size: 16px;
+            color: #777;
+            margin-bottom: 15px;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 120, 0, 0.1);
+            color: #ff7800;
+            border-radius: 50%;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .social-icons a:hover {
+            background: #ff7800;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(255, 120, 0, 0.2);
+        }
+        
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 58;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+        }
+        
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1100px) {
+            .desktop-nav a {
+                font-size: 16px;
+                padding: 6px 10px;
+            }
+        }
+        
+        @media (max-width: 920px) {
+            .desktop-nav, .header-container .cta-button {
+                display: none;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .header-container {
+                justify-content: space-between;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                height: 55px;
+            }
+            
+            .mobile-menu {
+                width: 280px;
+                right: -280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="header-container">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="באמפר קאר אילת לוגו">
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <a href="index.html" class="active"><i class="fas fa-home"></i> דף הבית</a>
+                <a href="events.html"><i class="fas fa-calendar-alt"></i> הזמנת אירוע</a>
+                <a href="qa.html"><i class="fas fa-question-circle"></i> שאלות נפוצות</a>
+                <a href="gallery.html"><i class="fas fa-images"></i> גלריה</a>
+                <a href="articles.html"><i class="fas fa-newspaper"></i> כתבו עלינו</a>
+                <a href="contact.html"><i class="fas fa-phone-alt"></i> יצירת קשר</a>
+            </nav>
+            
+            <!-- CTA Button (Desktop) -->
+            <a href="#" class="cta-button">
+                הזמינו כרטיסים <i class="fas fa-ticket-alt"></i>
+            </a>
+            
+            <!-- Hamburger Menu (Mobile) -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Mobile Menu (Slides in from right) -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html" class="active"><i class="fas fa-home"></i> דף הבית</a>
+        <a href="events.html"><i class="fas fa-calendar-alt"></i> הזמנת אירוע</a>
+        <a href="qa.html"><i class="fas fa-question-circle"></i> שאלות נפוצות</a>
+        <a href="gallery.html"><i class="fas fa-images"></i> גלריה</a>
+        <a href="articles.html"><i class="fas fa-newspaper"></i> כתבו עלינו</a>
+        <a href="contact.html"><i class="fas fa-phone-alt"></i> יצירת קשר</a>
+        
+        <!-- CTA Button (Mobile) -->
+        <a href="#" class="cta-button">
+            הזמינו כרטיסים <i class="fas fa-ticket-alt"></i>
+        </a>
+        
+        <!-- Social Media Links -->
+        <div class="mobile-social">
+            <h4>עקבו אחרינו</h4>
+            <div class="social-icons">
+                <a href="#" aria-label="פייסבוק"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="אינסטגרם"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="וואטסאפ"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" aria-label="טיקטוק"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Overlay Background -->
+    <div class="overlay" id="overlay"></div>
+    
+    <script>
+        // Elements
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const overlay = document.getElementById('overlay');
+        const header = document.getElementById('header');
+        
+        // Toggle mobile menu
+        function toggleMenu() {
+            hamburger.classList.toggle('open');
+            
+            if (hamburger.classList.contains('open')) {
+                mobileMenu.classList.add('open');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('open');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+        
+        // Event listeners
+        hamburger.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+        
+        // Close menu when clicking links
+        const mobileLinks = document.querySelectorAll('.mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (hamburger.classList.contains('open')) {
+                    toggleMenu();
+                }
+            });
+        });
+        
+        // Highlight active page
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        const desktopLinks = document.querySelectorAll('.desktop-nav a');
+        
+        desktopLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === currentPage) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+        
+        mobileLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === currentPage) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv = 'cache-control' content = 'no-cache'>
+    <meta http-equiv = 'expires' content = '0'>
+    <meta http-equiv = 'pragma' content = 'no-cache'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>באמפר קאר אילת | דף הבית</title>
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" href="assets/favicons/favicon.ico" type="image/x-icon">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="באמפר קאר אילת" />
+    <meta property="og:description" content="המקום המושלם לבילוי עם המשפחה והחברים" />
+    <meta property="og:image" content="https://i.ibb.co/Z6473S0/logo-removebg-preview.png" />
+    <meta property="og:url" content="https://bumpercar.co.il" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="https://i.ibb.co/Z6473S0/logo-removebg-preview.png">
+    <meta name="twitter:title" content="באמפר קאר אילת">
+    <meta name="twitter:description" content="המקום המושלם לבילוי עם המשפחה והחברים">
+    <meta name="twitter:image" content="https://i.ibb.co/Z6473S0/logo-removebg-preview.png">
+<!-- Import Hebo font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+		<!-- Accessibility Script -->
+	<script src="https://cdn.enable.co.il/licenses/enable-L304761e05ykaodz-0924-63383/init.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous">
+
+</head>
+<style>
+    .video-container {
+        position: relative;
+        padding: 6px;
+        background: linear-gradient(45deg, #ff8c00, #808080); /* Orange to Grey gradient */
+        border-radius: 50%; /* Makes the container circular */
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Add shadow to make it pop */
+        max-width: 300px; /* Limit the maximum width */
+        height: 300px; /* Keep the height proportional */
+        overflow: hidden;
+    }
+
+    .video-container video {
+        border-radius: 50%; /* Ensures the video inside is also rounded */
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+
+    .round-btn-orange {
+        background: linear-gradient(45deg, rgba(255,193,7,1) 0%, rgba(255,87,34,1) 100%);
+        color: white;
+        padding: 20px 40px;
+        border-radius: 50px;
+        box-shadow: 0 8px 15px -5px rgba(255,193,7,0.7);
+        font-size: 1.5rem;
+        font-weight: bold;
+        transition: transform 0.2s ease;
+    }
+
+    .round-btn-orange:hover {
+        transform: scale(1.05);
+    }
+
+    /* Breathing Animation */
+    @keyframes breathing {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    /* Apply the animation */
+    .breathing-btn {
+        animation: breathing 2s ease-in-out infinite;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .round-btn-orange {
+            padding: 15px 30px;
+            font-size: 1.25rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .round-btn-orange {
+            padding: 10px 20px;
+            font-size: 1rem;
+        }
+    }
+
+    /* Add margin below video for the button to fit nicely */
+    .video-container + .flex {
+        margin-top: 20px; /* Adjust margin to ensure spacing between video and button */
+    }
+
+    #videoModal.hidden {
+        display: none;
+    }
+
+    .video-container {
+        position: relative;
+        padding: 6px;
+        background: linear-gradient(45deg, #ff8c00, #808080); /* Orange to Grey gradient */
+        border-radius: 5px; /* Very slight rounding */
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+        max-width: 800px; /* Keep it wide */
+        height: auto; /* Allow dynamic height */
+        overflow: hidden;
+    }
+
+    .video-container video {
+        border-radius: 5px; /* Slight rounding for a box look */
+        object-fit: cover;
+        width: 100%;
+        height: auto;
+    }
+
+
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    /* Close button styles */
+    #closeModalBtn {
+        background-color: rgba(255, 193, 7, 0.9); /* Light orange background */
+        color: rgba(255, 87, 34, 0.9); /* Darker orange for the "X" */
+        border: none;
+        border-radius: 50%; /* Make it a circle */
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 24px; /* Size of the "X" */
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 999;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+        transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    #closeModalBtn:hover {
+        transform: scale(1.1); /* Slightly enlarge on hover */
+        background-color: rgba(255, 87, 34, 0.9); /* Darken background on hover */
+        color: rgba(255, 193, 7, 0.9); /* Lighten the "X" color on hover */
+    }
+    section.container.mx-auto.py-20.text-center {
+        padding-top: 0rem;
+        padding-bottom: 1rem;
+    }
+    .py-16 {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+</style>
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Hero Section -->
+    <section class="container mx-auto py-20 text-center">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-orange-500 drop-shadow-md text-center py-6">
+            <span class="block sm:inline">ברוכים הבאים</span>
+            <span class="block sm:inline">לבאמפר קאר אילת!</span>
+        </h1>        
+        <p class="text-xl mb-8 text-orangered">המקום המושלם לבילוי עם המשפחה והחברים. בואו ליהנות מחוויות בלתי נשכחות באטרקציות מרתקות לכל הגילאים</p>
+        
+    <!-- Video Container -->
+    <div class="video-container mx-auto p-6 flex justify-center items-center bg-gradient-to-r from-orange-400 to-gray-500 shadow-lg" style="width: 1000px; max-width: 100%;">
+        <div class="overflow-hidden w-full h-auto">
+            <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                <source src="assets/videos/hero-video.mp4" type="video/mp4">
+                דפדפן זה אינו תומך בהצגת וידאו.
+            </video>
+        </div>
+    </div>
+
+    <!-- Breathing Button Below the Video -->
+    <div class="flex justify-center mt-10">
+        <button class="round-btn-orange breathing-btn" id="openModalBtn">מי אנחנו ?</button>
+    </div>
+
+
+    </section>
+
+    <!-- Company Overview -->
+    <section class="bg-gray-200 py-16 rounded-lg shadow-inner">
+        <div class="container mx-auto text-center">
+            <p class="text-xl max-w-4xl mx-auto mt-8 leading-relaxed">
+                באמפר קאר אילת הוא מרכז הבידור החדש והמוביל לילדים ולמשפחות בעיר אילת. המרכז מציע חוויות בלתי נשכחות, עם אטרקציות מרתקות ומאתגרות לכל הגילאים. המטרה שלנו היא לספק מקום שבו הילדים יכולים ליהנות בבטחה ובכיף, תוך כדי יצירת זיכרונות נפלאים עם המשפחה והחברים.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- Main Activities -->
+    <section class="container mx-auto py-16">
+        <h2 class="text-4xl font-bold text-center mb-12 text-gold">פעילויות עיקריות</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Activity 1 -->
+            <div class="bg-white text-gray-800 rounded-lg shadow-lg overflow-hidden">
+                <img src="assets/images/activity1.jpg" alt="מכוניות מתנגשות" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-4 text-darkorange text-center">מכוניות מתנגשות</h3>
+                    <p class="text-center">האטרקציה המרכזית בה ילדים יכולים ליהנות מהחוויה של נהיגה והתנגשות זה בזה בסביבה בטוחה ומבוקרת.</p>
+                </div>
+            </div>
+            <!-- Activity 2 -->
+            <div class="bg-white text-gray-800 rounded-lg shadow-lg overflow-hidden">
+                <img src="assets/images/activity2.jpg" alt="אתגרי משחקים" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-4 text-darkorange text-center">אתגרי משחקים</h3>
+                    <p  class="text-center">מקום מציע מגוון אתגרי משחקים שמעסיקים את הילדים בפעילויות כיפיות ותחרותיות.</p>
+                </div>
+            </div>
+            <!-- Activity 3 -->
+            <div class="bg-white text-gray-800 rounded-lg shadow-lg overflow-hidden">
+                <img src="assets/images/activity3.jpg" alt="פרסים" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-4 text-darkorange text-center">פרסים</h3>
+                    <p class="text-center">ילדים יכולים להשתתף באתגרים ולזכות בפרסים מרגשים.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Structure -->
+    <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-lg shadow-lg p-4 relative w-full max-w-3xl">
+            <button id="closeModalBtn" class="absolute top-2 right-2 text-2xl text-red-500">&times;</button>
+            <div class="video-container">
+                <video width="100%" controls>
+                    <source src="assets/promotion-video.mp4" type="video/mp4">
+                    דפדפן זה אינו תומך בהצגת וידאו.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <script>
+        // Load header
+        // Fetch the header.html content and insert it into the #header element
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                // Insert the fetched header HTML into the element with id="header"
+                document.getElementById('header').innerHTML = data;
+
+                // Now that the header is loaded, select the hamburger and nav-links elements
+                const hamburger = document.querySelector('.hamburger');
+                const navLinks = document.querySelector('.nav-links');
+
+                // Check if both hamburger and navLinks exist, then add event listeners
+                if (hamburger && navLinks) {
+                    // Toggle the 'active' and 'open' classes when the hamburger is clicked
+                    hamburger.addEventListener('click', () => {
+                        navLinks.classList.toggle('active');
+                        hamburger.classList.toggle('open');
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error loading header:', error);
+            });
+
+        
+        // Load footer
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
+        
+        // Modal functionality
+        const videoModal = document.getElementById('videoModal');
+        const openModalBtn = document.getElementById('openModalBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const videoElement = videoModal.querySelector('video');
+        
+        openModalBtn.addEventListener('click', function() {
+            videoModal.classList.remove('hidden');
+            videoElement.play();
+        });
+        
+        closeModalBtn.addEventListener('click', function() {
+            videoModal.classList.add('hidden');
+            videoElement.pause();
+            videoElement.currentTime = 0;
+        });
+        
+        window.addEventListener('click', function(event) {
+            if (event.target === videoModal) {
+                videoModal.classList.add('hidden');
+                videoElement.pause();
+                videoElement.currentTime = 0;
+            }
+        });
+        </script>
+        
+</body>
+</html>

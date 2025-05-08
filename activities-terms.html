@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>באמפר קאר אילת | תנאים והגבלות</title>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="באמפר קאר אילת" />
+    <meta property="og:description" content="תנאים והגבלות" />
+    <meta property="og:image" content="https://i.ibb.co/Z6473S0/logo-removebg-preview.png" />
+    <meta property="og:url" content="http://bumpercar.co.il" />
+    <meta property="og:type" content="website" />
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="https://i.ibb.co/Z6473S0/logo-removebg-preview.png">
+    <meta name="twitter:title" content="באמפר קאר אילת">
+    <meta name="twitter:description" content="תנאים והגבלות">
+    <meta name="twitter:image" content="https://i.ibb.co/Z6473S0/logo-removebg-preview.png">
+
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" href="assets/favicons/favicon.ico" type="image/x-icon">
+
+		<!-- Accessibility Script -->
+	<script src="https://cdn.enable.co.il/licenses/enable-L304761e05ykaodz-0924-63383/init.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous">
+    <link rel="icon" href="assets/favicons/favicon.ico" type="image/x-icon">
+    <style>
+        .highlight {
+            color: #FFA500; /* Coral/Orange color */
+        }
+        .slideshow-container {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            margin: 0 auto;
+            overflow: hidden;
+            border: 5px solid orange;
+            border-radius: 10px;
+        }
+        .slideshow-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        /* Fade-in animation */
+        .fade {
+            animation: fadeEffect 2s;
+        }
+
+        @keyframes fadeEffect {
+            from {opacity: 0.4} 
+            to {opacity: 1}
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Main Content -->
+    <section class="container mx-auto py-16 px-6">
+        <!-- Header with Slideshow -->
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-orange-500 drop-shadow-md text-center py-6">
+                  שאלות נפוצות
+                </h1>          
+            <div class="separator" style="height: 3px; width: 80%; background: linear-gradient(45deg, rgba(255,193,7,1) 0%, rgba(255,87,34,1) 100%); margin: 0 auto 1.5rem auto; margin-top: 2rem;"></div>
+        </div>
+        <div class="p-8 text-lg">
+            <p class="mb-4">
+                <span class="highlight font-bold">מכוניות מתנגשות אילת</span> – האטרקציה שמשגעת את אילת אשר כוללת 20 מכוניות מתנגשות חדשות ומהירות.
+            </p>
+            <p class="mb-4">
+                הפנינג לכל המשפחה – הנאה מובטחת.
+            </p>
+            <p class="mb-4">
+                אנו נמצאים בפארק הטרמינל החדש במרחק הליכה מקניון מול הים והטיילת. מצפים לראותכם ולא לשכוח לחגור חגורות בטיחות.
+            </p>
+            <h2 class="text-3xl font-bold highlight mt-8 mb-4">תנאי שימוש</h2>
+            <ul class="list-disc pl-6 mb-8">
+                <li class="mb-2">ילדים מגיל 4 ועד 8 ומגובה 105 עד 135 ס"מ חייבים בליווי מבוגר.</li>
+                <li class="mb-2">השימוש אסור לסובלים מבעיות לב, לחץ דם, גב, צוואר ולנשים בהריון.</li>
+                <li class="mb-2">חובה לחגור חגורת בטיחות.</li>
+                <li class="mb-2">עד שני נוסעים ברכב.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <script>
+        // Albums array for images
+        const albums = {
+            'cars-album': [
+                'assets/images/cars-album/car1.jpg',
+                'assets/images/cars-album/car2.jpg',
+                'assets/images/cars-album/car3.jpg',
+                'assets/images/cars-album/car4.jpg',
+                'assets/images/cars-album/car5.jpg',
+                'assets/images/cars-album/car6.jpg',
+                'assets/images/cars-album/car7.jpg',
+                'assets/images/cars-album/car8.jpg',
+                'assets/images/cars-album/car9.jpg',
+                'assets/images/cars-album/car10.jpg'
+            ]
+        };
+
+        // Variables for the slideshow
+        let currentImageIndex = 0;
+        const slideshowImage = document.getElementById('slideshow-image');
+        const slideshowImages = albums['cars-album']; // Use cars-album images
+
+        // Function to change the image every few seconds
+        function changeImage() {
+            currentImageIndex = (currentImageIndex + 1) % slideshowImages.length;
+            slideshowImage.src = slideshowImages[currentImageIndex];
+        }
+
+        // Change image every 5 seconds
+        setInterval(changeImage, 5000);
+
+        // Load header
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+        
+                // Now the header is loaded, we can add the hamburger menu functionality
+                const hamburger = document.querySelector('.hamburger');
+                const navLinks = document.querySelector('.nav-links');
+        
+                if (hamburger && navLinks) {
+                    hamburger.addEventListener('click', () => {
+                        navLinks.classList.toggle('active');
+                    });
+                }
+            });
+        
+
+        // Load footer
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // Set a custom placeholder for the date input
+            var dateInput = document.getElementById('date');
+            dateInput.placeholder = "בחרו תאריך";
+            
+            dateInput.onfocus = function() {
+                this.placeholder = "";
+            };
+            dateInput.onblur = function() {
+                this.placeholder = "בחרו תאריך";
+            };
+        });
+    </script>
+
+</body>
+</html>

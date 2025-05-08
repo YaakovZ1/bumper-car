@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>באמפר קאר אילת | דרכי הגעה</title>
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" href="assets/favicons/favicon.ico" type="image/x-icon">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+				<!-- Accessibility Script -->
+	<script src="https://cdn.enable.co.il/licenses/enable-L304761e05ykaodz-0924-63383/init.js"></script>
+    <style>
+        .navigation-icon {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px;
+            background-color: #f2f2f2;
+            color: #333;
+            text-decoration: none;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .navigation-icon i {
+            font-size: 2rem;
+        }
+
+        .navigation-icon:hover {
+            background-color: #e2e2e2;
+            color: #000;
+        }
+
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Directions Section -->
+    <section class="container mx-auto py-16 text-center">
+        <h2 class="text-5xl font-bold mb-8 text-orange-500">המיקום שלנו</h2>
+        <div class="separator" style="height: 3px; width: 80%; background: linear-gradient(45deg, rgba(255,193,7,1) 0%, rgba(255,87,34,1) 100%); margin: 0 auto 1.5rem auto; margin-top: 2rem;"></div> <!-- Orange separator line -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden mx-auto max-w-3xl">
+            <div class="p-6">
+                <h3 class="text-3xl font-bold mb-4 text-gray-800">באמפר קאר אילת</h3>
+                <p class="text-lg mb-4 text-gray-600">פארק הטרמינל (שדה התעופה הישן, ליד קניון מול הים), אילת</p>
+                <div class="mb-4">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3381.337219372578!2d34.94938331476004!3d29.556934081669817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15007088fbf0dce5%3A0x22b2f95677e5565e!2sEilat!5e0!3m2!1sen!2sil!4v1616503873472!5m2!1sen!2sil" 
+                        width="100%" 
+                        height="300" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy"></iframe>
+                </div>
+
+                <!-- Direction Buttons with Icons -->
+                <div class="icon-container">
+                    <!-- Google Maps Button -->
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=29.556934,34.949383" target="_blank" class="navigation-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </a>
+                    <!-- Waze Button -->
+                    <a href="https://ul.waze.com/ul?ll=29.556934,34.949383&navigate=yes" target="_blank" class="navigation-icon">
+                        <i class="fab fa-waze"></i>
+                    </a>
+                </div>
+
+                <!-- Business Information Section -->
+                <div class="mt-12 bg-orange-100 p-6 rounded-lg shadow-md">
+                    <h4 class="text-2xl font-bold text-orange-600 mb-4">שעות פעילות:</h4>
+                    <div class="separator" style="height: 3px; width: 80%; background: linear-gradient(45deg, rgba(255,193,7,1) 0%, rgba(255,87,34,1) 100%); margin: 0 auto 1.5rem auto; margin-top: 2rem;"></div> <!-- Orange separator line -->
+                
+					<div class="flex flex-col items-center justify-center mb-4">
+						<i class="fas fa-clock text-orange-500 text-2xl mb-3"></i>
+						<p class="text-lg font-semibold text-gray-700">פתוח כל יום החל מהשעה 18:00-23:00</p>
+						<p class="text-lg font-semibold text-gray-700">שבת מהשעה 10:30 בבוקר עד 20:00</p>
+					</div>
+
+                    
+                    <div class="flex items-center justify-center mb-4">
+                        <i class="fas fa-map-marker-alt text-orange-500 text-2xl mr-3"></i>
+                        <p class="text-lg font-semibold text-gray-700">מיקום: פארק הטרמינל דרך ערבה 3, אילת</p>
+                    </div>
+                    
+                </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <script>
+        // Load header
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+        
+                // Now the header is loaded, we can add the hamburger menu functionality
+                const hamburger = document.querySelector('.hamburger');
+                const navLinks = document.querySelector('.nav-links');
+        
+                if (hamburger && navLinks) {
+                    hamburger.addEventListener('click', () => {
+                        navLinks.classList.toggle('active');
+                    });
+                }
+            });
+        
+
+        // Load footer
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // Set a custom placeholder for the date input
+            var dateInput = document.getElementById('date');
+            dateInput.placeholder = "בחרו תאריך";
+            
+            dateInput.onfocus = function() {
+                this.placeholder = "";
+            };
+            dateInput.onblur = function() {
+                this.placeholder = "בחרו תאריך";
+            };
+        });
+    </script>
+
+</body>
+</html>

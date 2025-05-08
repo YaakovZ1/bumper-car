@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>באמפר קאר אילת | שאלות נפוצות</title>
+    
+    <!-- Meta Tags -->
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="באמפר קאר אילת - שאלות נפוצות" />
+    <meta property="og:description" content="מידע על שאלות נפוצות בבאמפר קאר אילת" />
+    <meta property="og:image" content="https://i.ibb.co/Z6473S0/logo-removebg-preview.png" />
+    <meta property="og:url" content="https://bumpercar.co.il/faq" />
+    <meta property="og:type" content="website" />
+    
+    <!-- Modern Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#FFF7ED',
+                            100: '#FFEDD5',
+                            200: '#FED7AA',
+                            300: '#FDBA74',
+                            400: '#FB923C',
+                            500: '#F97316',
+                            600: '#EA580C',
+                            700: '#C2410C',
+                            800: '#9A3412',
+                            900: '#7C2D12',
+                        },
+                        secondary: {
+                            500: '#6B7280',
+                            600: '#4B5563',
+                            700: '#374151',
+                            800: '#1F2937',
+                            900: '#111827',
+                        }
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 3s infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                        'wiggle': 'wiggle 1s ease-in-out infinite',
+                        'fade-in': 'fadeIn 1.5s ease-in-out',
+                        'slide-up': 'slideUp 0.9s ease-in-out',
+                        'slide-right': 'slideRight 0.9s ease-in-out',
+                        'slide-left': 'slideLeft 0.9s ease-in-out',
+                        'expand': 'expand 0.7s ease-out',
+                        'rotate-slow': 'rotate 15s linear infinite',
+                        'ping-slow': 'ping 3s cubic-bezier(0, 0, 0.2, 1) infinite',
+                        'tilt': 'tilt 10s infinite linear',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        wiggle: {
+                            '0%, 100%': { transform: 'rotate(-3deg)' },
+                            '50%': { transform: 'rotate(3deg)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(50px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        slideRight: {
+                            '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        slideLeft: {
+                            '0%': { transform: 'translateX(50px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        expand: {
+                            '0%': { transform: 'scale(0.8)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
+                        },
+                        tilt: {
+                            '0%, 50%, 100%': {
+                                transform: 'rotate(0deg)',
+                            },
+                            '25%': {
+                                transform: 'rotate(1deg)',
+                            },
+                            '75%': {
+                                transform: 'rotate(-1deg)',
+                            },
+                        },
+                    }
+                }
+            },
+        }
+    </script>
+
+    <!-- Import Heebo font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    
+    <!-- Accessibility Script -->
+    <script src="https://cdn.enable.co.il/licenses/enable-L304761e05ykaodz-0924-63383/init.js"></script>
+    
+    <!-- Custom CSS -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Heebo', sans-serif;
+            overflow-x: hidden;
+            background-color: #f9fafb;
+        }
+        
+        ::selection {
+            background-color: #F97316;
+            color: white;
+        }
+        
+        /* Navbar styles */
+        .navbar {
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .navbar.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* Decorative elements */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            z-index: 0;
+            opacity: 0.5;
+        }
+        
+        .blob-1 {
+            top: 10%;
+            right: 10%;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.4), rgba(234, 88, 12, 0.3));
+            animation: float 20s infinite alternate ease-in-out;
+        }
+        
+        .blob-2 {
+            bottom: 20%;
+            left: 5%;
+            width: 250px;
+            height: 250px;
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.3), rgba(251, 146, 60, 0.2));
+            animation: float 15s infinite alternate-reverse ease-in-out;
+        }
+        
+        /* 3D Card Styles */
+        .faq-card {
+            position: relative;
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .faq-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .faq-card.active {
+            transform: translateY(-10px);
+        }
+        
+        .faq-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 2px;
+            background: linear-gradient(140deg, rgba(249, 115, 22, 0.7), rgba(234, 88, 12, 0.5), rgba(249, 115, 22, 0.1), rgba(234, 88, 12, 0));
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .faq-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: linear-gradient(120deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .faq-card:hover::before {
+            opacity: 1;
+        }
+        
+        .faq-card:hover::after {
+            opacity: 1;
+        }
+        
+        .faq-icon {
+            transition: all 0.5s ease;
+            position: relative;
+        }
+        
+        .faq-card:hover .faq-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+        
+        .faq-card.active .faq-icon {
+            transform: scale(1.3) rotate(0deg);
+        }
+        
+        .faq-answer {
+            position: relative;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.5, 0, 0.1, 1);
+        }
+        
+        .faq-card.active .faq-answer {
+            opacity: 1;
+            max-height: 300px;
+            margin-top: 16px;
+            padding-top: 16px;
+        }
+        
+        .faq-answer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(249, 115, 22, 0.3), transparent);
+        }
+        
+        /* Search field styles */
+        .search-field {
+            background: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .search-field:focus {
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.3);
+            border-color: rgba(249, 115, 22, 0.5);
+            background: white;
+        }
+        
+        /* Filter buttons */
+        .filter-btn {
+            position: relative;
+            transition: all 0.3s ease;
+            border-radius: 9999px;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .filter-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(140deg, rgba(249, 115, 22, 0.8), rgba(234, 88, 12, 1));
+            z-index: -1;
+            border-radius: inherit;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .filter-btn.active::before {
+            opacity: 1;
+        }
+        
+        .filter-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .filter-btn.active {
+            color: white;
+            box-shadow: 0 10px 20px -10px rgba(234, 88, 12, 0.6);
+        }
+        
+        /* Quick links styles */
+        .quick-link {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .quick-link::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(234, 88, 12, 0.2));
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            z-index: -1;
+            border-radius: inherit;
+        }
+        
+        .quick-link:hover::before {
+            transform: translateX(0);
+        }
+        
+        .quick-link:hover {
+            transform: translateY(-3px);
+        }
+        
+        /* Floating elements */
+        .float-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .float-element-slow {
+            animation: float 10s ease-in-out infinite;
+        }
+        
+        .float-element-reverse {
+            animation: float 8s ease-in-out infinite reverse;
+        }
+        
+        /* Featured FAQs */
+        .featured-faq {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .featured-faq::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom, #F97316, transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .featured-faq:hover::before {
+            opacity: 1;
+        }
+        
+        .featured-faq:hover {
+            transform: translateX(5px);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #F97316, #FB923C);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #EA580C, #F97316);
+        }
+        
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: relative;
+            animation: float 2s infinite ease-in-out;
+        }
+        
+        .scroll-indicator::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 10px;
+            background-color: #F97316;
+            border-radius: 50%;
+            animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+        
+        /* Loading animation */
+        .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .loader-container.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .loader {
+            width: 60px;
+            height: 60px;
+            position: relative;
+        }
+        
+        .loader div {
+            box-sizing: border-box;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 5px solid transparent;
+            border-top-color: #F97316;
+            border-radius: 50%;
+            animation: spinnerOne 1.2s linear infinite;
+        }
+        
+        .loader div:nth-child(2) {
+            border: 5px solid transparent;
+            border-bottom-color: #F97316;
+            animation: spinnerTwo 1.2s linear infinite;
+        }
+        
+        @keyframes spinnerOne {
+            0% { transform: rotate(0deg); border-width: 5px; }
+            50% { transform: rotate(180deg); border-width: 1px; }
+            100% { transform: rotate(360deg); border-width: 5px; }
+        }
+        
+        @keyframes spinnerTwo {
+            0% { transform: rotate(0deg); border-width: 1px; }
+            50% { transform: rotate(180deg); border-width: 5px; }
+            100% { transform: rotate(360deg); border-width: 1px; }
+        }
+
+        /* Tooltip styles */
+        .tooltip {
+            position: relative;
+        }
+        
+        .tooltip-text {
+            visibility: hidden;
+            width: 120px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="loader-container">
+        <div class="loader">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- Background Elements -->
+    <div class="blob blob-1 hidden md:block"></div>
+    <div class="blob blob-2 hidden md:block"></div>
+
+    <!-- Header (Keep existing header) -->
+    <div id="header"></div>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 relative overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-8" data-aos="fade-up">
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 text-primary-600">
+                    שאלות נפוצות
+                </h1>
+                <div class="w-32 h-1 bg-primary-500 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    כל המידע שאתם צריכים על באמפר קאר אילת, במקום אחד. <br>מצאו מענה לשאלות הנפוצות ביותר שלכם.
+                </p>
+            </div>
+            
+            <!-- Search Bar -->
+            <div class="max-w-2xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="200">
+                <div class="relative">
+                    <input type="text" id="faq-search" class="search-field w-full py-4 px-6 pr-12 rounded-full shadow-md text-lg focus:outline-none" placeholder="חפשו שאלה...">
+                    <div class="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
+                        <i class="fas fa-search text-primary-500"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Category Filters -->
+            <div class="filter-container flex flex-wrap justify-center gap-3 mb-16" data-aos="fade-up" data-aos-delay="300">
+                <button class="filter-btn active py-2 px-5 border-2 border-primary-200 font-medium rounded-full flex items-center justify-center min-w-[120px]" data-category="all">
+                    <i class="fas fa-list-ul mr-2"></i>
+                    הכל
+                </button>
+                <button class="filter-btn py-2 px-5 border-2 border-primary-200 font-medium rounded-full flex items-center justify-center min-w-[120px]" data-category="event">
+                    <i class="fas fa-gift mr-2"></i>
+                    אירועים
+                </button>
+                <button class="filter-btn py-2 px-5 border-2 border-primary-200 font-medium rounded-full flex items-center justify-center min-w-[120px]" data-category="safety">
+                    <i class="fas fa-shield-alt mr-2"></i>
+                    בטיחות
+                </button>
+                <button class="filter-btn py-2 px-5 border-2 border-primary-200 font-medium rounded-full flex items-center justify-center min-w-[120px]" data-category="booking">
+                    <i class="fas fa-phone-alt mr-2"></i>
+                    הזמנות
+                </button>
+                <button class="filter-btn py-2 px-5 border-2 border-primary-200 font-medium rounded-full flex items-center justify-center min-w-[120px]" data-category="facilities">
+                    <i class="fas fa-building mr-2"></i>
+                    מתקנים
+                </button>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator text-center hidden md:block absolute bottom-5 left-1/2 transform -translate-x-1/2">
+            <i class="fas fa-angle-down text-2xl text-primary-500"></i>
+        </div>
+    </section>
+
+    <!-- Main FAQ Section -->
+    <section class="py-16 relative">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                <!-- Sidebar with Quick Links & Featured FAQs -->
+                <div class="md:col-span-3 lg:col-span-3">
+                    <div class="sticky top-32">
+                        <!-- Quick Links -->
+                        <div class="bg-white rounded-2xl p-6 shadow-lg mb-8" data-aos="fade-right">
+                            <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-bolt text-primary-500 mr-2"></i>
+                                קישורים מהירים
+                            </h3>
+                            <ul class="space-y-3">
+                                <li>
+                                    <a href="#bookings" class="quick-link flex items-center p-3 rounded-lg text-gray-700 hover:text-primary-600 transition-all">
+                                        <i class="fas fa-calendar-check text-primary-500 mr-3"></i>
+                                        הזמנות ותשלומים
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#safety" class="quick-link flex items-center p-3 rounded-lg text-gray-700 hover:text-primary-600 transition-all">
+                                        <i class="fas fa-life-ring text-primary-500 mr-3"></i>
+                                        בטיחות וביטחון
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#events" class="quick-link flex items-center p-3 rounded-lg text-gray-700 hover:text-primary-600 transition-all">
+                                        <i class="fas fa-birthday-cake text-primary-500 mr-3"></i>
+                                        אירועים מיוחדים
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#facilities" class="quick-link flex items-center p-3 rounded-lg text-gray-700 hover:text-primary-600 transition-all">
+                                        <i class="fas fa-map-marker-alt text-primary-500 mr-3"></i>
+                                        מתקנים והגעה
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Featured Questions -->
+                        <div class="bg-white rounded-2xl p-6 shadow-lg" data-aos="fade-right" data-aos-delay="100">
+                            <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-star text-primary-500 mr-2"></i>
+                                שאלות נפוצות במיוחד
+                            </h3>
+                            <ul class="space-y-4">
+                                <li>
+                                    <a href="#faq-1" class="featured-faq block p-3 text-gray-700 hover:text-primary-600 transition-all">
+                                        <div class="text-sm text-primary-500 mb-1">אירועים</div>
+                                        האם יש לכם חבילות קבוצתיות או הנחות?
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#faq-2" class="featured-faq block p-3 text-gray-700 hover:text-primary-600 transition-all">
+                                        <div class="text-sm text-primary-500 mb-1">בטיחות</div>
+                                        אילו אמצעי בטיחות קיימים?
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#faq-5" class="featured-faq block p-3 text-gray-700 hover:text-primary-600 transition-all">
+                                        <div class="text-sm text-primary-500 mb-1">תנאים</div>
+                                        האם השהייה בפארק מוגבלת בזמן?
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Contact Card - Desktop only -->
+                        <div class="bg-gradient-to-r from-primary-600 to-primary-700 rounded-2xl p-6 shadow-lg mt-8 text-white hidden md:block" data-aos="fade-right" data-aos-delay="200">
+                            <h3 class="text-xl font-bold mb-4 flex items-center">
+                                <i class="fas fa-question-circle mr-2"></i>
+                                לא מצאתם מענה?
+                            </h3>
+                            <p class="mb-4 text-primary-100">נשמח לענות על כל שאלה נוספת שיש לכם!</p>
+                            <a href="#" class="inline-block w-full bg-white text-primary-600 font-bold py-3 px-4 rounded-lg text-center hover:bg-primary-50 transition-all">
+                                צרו קשר
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Main FAQ Content -->
+                <div class="md:col-span-9 lg:col-span-9">
+                    <!-- Featured FAQ Header -->
+                    <div class="relative mb-8" data-aos="fade-up">
+                        <div class="absolute top-1/2 left-0 right-0 h-0.5 bg-gray-200 -z-10"></div>
+                        <h2 class="text-2xl font-bold text-gray-800 relative inline-block bg-gray-50 pr-0 pl-6">
+                            <i class="fas fa-star text-primary-500 mr-2"></i>
+                            שאלות נפוצות
+                        </h2>
+                    </div>
+                    
+                    <!-- FAQ Cards Container - To be populated with JS -->
+                    <div id="faq-container" class="space-y-6">
+                        <!-- FAQs will be loaded here by JavaScript -->
+                    </div>
+                    
+                    <!-- No Results Message -->
+                    <div id="no-results" class="hidden text-center py-16">
+                        <div class="text-6xl text-primary-300 mb-4">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-700 mb-2">לא נמצאו תוצאות</h3>
+                        <p class="text-gray-500">נסו לחפש במונחים אחרים או <a href="#" class="text-primary-500 hover:underline">צרו קשר</a> לשאלות נוספות</p>
+                    </div>
+                    
+                    <!-- Contact Card - Mobile only -->
+                    <div class="bg-gradient-to-r from-primary-600 to-primary-700 rounded-2xl p-6 shadow-lg mt-10 text-white md:hidden" data-aos="fade-up">
+                        <h3 class="text-xl font-bold mb-4 flex items-center justify-center">
+                            <i class="fas fa-question-circle mr-2"></i>
+                            לא מצאתם מענה?
+                        </h3>
+                        <p class="mb-4 text-primary-100 text-center">נשמח לענות על כל שאלה נוספת שיש לכם!</p>
+                        <a href="#" class="inline-block w-full bg-white text-primary-600 font-bold py-3 px-4 rounded-lg text-center hover:bg-primary-50 transition-all">
+                            צרו קשר
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Help Section -->
+    <section class="py-16 bg-gradient-to-b from-white to-primary-50">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8" data-aos="fade-up">עדיין יש לכם שאלות?</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-10" data-aos="fade-up" data-aos-delay="100">
+                אנו כאן כדי לעזור! ניתן ליצור איתנו קשר בכל דרך שנוחה לכם ונשמח לענות על כל שאלה.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="200">
+                <!-- Phone -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg transform transition-all hover:-translate-y-2 hover:shadow-xl">
+                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 text-2xl mx-auto mb-6">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">טלפון</h3>
+                    <p class="text-gray-600 mb-4">זמינים 7 ימים בשבוע, 09:00-21:00</p>
+                    <a href="tel:052-4577582" class="text-primary-600 font-bold hover:text-primary-700 transition-colors">052-4577582</a>
+                </div>
+                
+                <!-- Email -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg transform transition-all hover:-translate-y-2 hover:shadow-xl">
+                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 text-2xl mx-auto mb-6">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">דוא"ל</h3>
+                    <p class="text-gray-600 mb-4">תמיד זמינים! נחזור אליכם תוך 24 שעות</p>
+                    <a href="mailto:office@bumpercar.co.il" class="text-primary-600 font-bold hover:text-primary-700 transition-colors">office@bumpercar.co.il</a>
+                </div>
+                
+                <!-- Social Media -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg transform transition-all hover:-translate-y-2 hover:shadow-xl">
+                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 text-2xl mx-auto mb-6">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">רשתות חברתיות</h3>
+                    <p class="text-gray-600 mb-4">עקבו אחרינו לעדכונים ויצירת קשר מהירה</p>
+                    <div class="flex justify-center space-x-4 space-x-reverse">
+                        <a href="#" class="w-10 h-10 rounded-full bg-primary-500 flex items-center justify-center text-white hover:bg-primary-600 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-primary-500 flex items-center justify-center text-white hover:bg-primary-600 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-primary-500 flex items-center justify-center text-white hover:bg-primary-600 transition-colors">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Keep existing footer) -->
+    <div id="footer"></div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 left-8 bg-primary-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- AOS Animation Library -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS animations
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            // Preloader
+            const preloader = document.querySelector('.loader-container');
+            setTimeout(() => {
+                preloader.classList.add('hidden');
+            }, 800);
+            
+            // Load header (keeping existing implementation)
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header').innerHTML = data;
+            
+                    // Now the header is loaded, add the hamburger menu functionality
+                    const hamburger = document.querySelector('.hamburger');
+                    const navLinks = document.querySelector('.nav-links');
+            
+                    if (hamburger && navLinks) {
+                        hamburger.addEventListener('click', () => {
+                            navLinks.classList.toggle('active');
+                        });
+                    }
+                });
+            
+            // Load footer (keeping existing implementation)
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer').innerHTML = data;
+                });
+            
+            // Back to top button
+            const backToTopButton = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 500) {
+                    backToTopButton.classList.remove('opacity-0', 'invisible');
+                    backToTopButton.classList.add('opacity-100', 'visible');
+                } else {
+                    backToTopButton.classList.remove('opacity-100', 'visible');
+                    backToTopButton.classList.add('opacity-0', 'invisible');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // FAQs Data with Icons and categories
+            const faqs = [
+                { 
+                    id: "faq-1",
+                    question: "האם יש לכם חבילות קבוצתיות או הנחות לימי הולדת או אירועים מיוחדים?", 
+                    answer: "כן, יש לנו מגוון חבילות והנחות מיוחדות לאירועים כמו ימי הולדת, אירועים משפחתיים, קבוצות בתי ספר וקבוצות מאורגנות. אנו מציעים חבילות מותאמות אישית עם שילוב של מכוניות מתנגשות, פעילויות נוספות, ואפשרויות לאוכל ושתייה. צרו איתנו קשר לקבלת פרטים נוספים והצעת מחיר מותאמת לאירוע שלכם.", 
+                    icon: "fas fa-gift", 
+                    color: "bg-purple-500", 
+                    category: "event"
+                },
+                { 
+                    id: "faq-2",
+                    question: "אילו אמצעי בטיחות קיימים?", 
+                    answer: "הבטיחות שלכם היא תמיד בראש סדר העדיפויות שלנו. במתחם יש את כל התקנים הנדרשים כדי להבטיח חוויה בטוחה ומהנה. המכוניות המתנגשות שלנו עומדות בתקנים הבינלאומיים המחמירים ביותר, עם חגורות בטיחות, מערכות בלימה אוטומטיות ופגושים מרופדים. צוות מיומן שלנו נמצא תמיד בשטח להשגחה ולהבטחת התנהלות בטוחה. כל המתקנים נבדקים באופן קבוע על ידי מהנדסי בטיחות ועוברים תחזוקה שוטפת.", 
+                    icon: "fas fa-shield-alt", 
+                    color: "bg-blue-500", 
+                    category: "safety"
+                },
+                { 
+                    id: "faq-3",
+                    question: "כיצד ניתן לבצע הזמנה?", 
+                    answer: "ניתן לבצע הזמנה במספר דרכים נוחות: 1) דרך אתר האינטרנט שלנו באמצעות טופס ההזמנה המקוון 2) בטלפון 052-4577582 בין השעות 9:00-21:00 3) באמצעות הדוא\"ל office@bumpercar.co.il 4) בעמוד הפייסבוק הרשמי שלנו. להזמנת אירועים קבוצתיים וימי הולדת, מומלץ לפנות אלינו מראש לתיאום ולהתאמה אישית של החבילה.", 
+                    icon: "fas fa-phone-alt", 
+                    color: "bg-green-500", 
+                    category: "booking"
+                },
+                { 
+                    id: "faq-4",
+                    question: "האם יש שיתופי פעולה או מבצעים מיוחדים?", 
+                    answer: "בהחלט! אנו מקיימים שיתופי פעולה עם ועדי עובדים, ארגונים וגופים שונים בעיר אילת והסביבה, ומציעים הנחות מיוחדות לחברי מועדונים שונים. בנוסף, אנו מקיימים מבצעים עונתיים (כמו במהלך החופש הגדול וחגים) ומבצעי מחירים מיוחדים בימים ובשעות מסוימים. כדאי לעקוב אחר העמוד שלנו בפייסבוק ובאינסטגרם לעדכונים שוטפים על מבצעים חדשים.", 
+                    icon: "fas fa-tags", 
+                    color: "bg-red-500", 
+                    category: "booking"
+                },
+                { 
+                    id: "faq-5",
+                    question: "האם השהייה בפארק מוגבלת בזמן?", 
+                    answer: "כן, השהייה הבסיסית בפארק מוגבלת לשעתיים, אך ניתן להאריך את השהייה בתשלום נוסף. לאירועים מיוחדים וקבוצות, אנו מציעים חבילות עם זמני שהייה מותאמים לצרכים שלכם. שימו לב שבימים עמוסים במיוחד, כמו חגים ותקופות שיא, ייתכן שנגביל את זמן השהייה כדי לאפשר לכמה שיותר אנשים ליהנות מהפארק.", 
+                    icon: "fas fa-clock", 
+                    color: "bg-yellow-500", 
+                    category: "booking"
+                },
+                { 
+                    id: "faq-6",
+                    question: "האם יש חנייה במקום?", 
+                    answer: "כן, יש חניה זמינה למבקרים בקרבת המתחם. החניה ללא תשלום למבקרי הפארק, אך שימו לב שבעונות השיא ובחגים החניה עלולה להתמלא במהירות. מומלץ להגיע מוקדם או לשקול אפשרויות תחבורה חלופיות כמו מוניות או תחבורה ציבורית. יש תחנת אוטובוס במרחק הליכה קצר מהפארק.", 
+                    icon: "fas fa-parking", 
+                    color: "bg-orange-500", 
+                    category: "facilities"
+                },
+                { 
+                    id: "faq-7",
+                    question: "האם יש גישה לנכים?", 
+                    answer: "כן, המתחם שלנו מותאם לנכים ויש גישה נוחה בכל רחבי הפארק. קיימות חניות נכים ייעודיות בסמוך לכניסה, ושירותים מותאמים לנכים. רוב האטרקציות והמתקנים מונגשים לבעלי מוגבלויות, והצוות שלנו תמיד זמין לסייע לכל מבקר עם צרכים מיוחדים. אנו ממליצים ליצור קשר מראש למידע ספציפי יותר לגבי הנגשה מותאמת אישית.", 
+                    icon: "fas fa-wheelchair", 
+                    color: "bg-teal-500", 
+                    category: "facilities"
+                },
+                { 
+                    id: "faq-8",
+                    question: "האם יש מתחם לקטנטנים?", 
+                    answer: "כן, יש לנו אזור מיוחד המיועד לקטנטנים בגילאי 2-4, עם משחקים ופעילויות מותאמות לגיל. ילדים מעל גיל 4 יכולים לנסוע במכוניות המתנגשות בליווי מבוגר. בנוסף, אנו מציעים מגוון פעילויות משפחתיות שמתאימות לכל הגילאים, כך שהמשפחה כולה יכולה ליהנות ביחד. האזור לקטנטנים נמצא תחת השגחה מיוחדת של צוות מיומן.", 
+                    icon: "fas fa-child", 
+                    color: "bg-pink-500", 
+                    category: "facilities"
+                },
+                { 
+                    id: "faq-9",
+                    question: "האם יש מתחם אוכל במקום?", 
+                    answer: "עתיד להיפתח שוק אוכל עשיר ומגוון שיציע מגוון רחב של אפשרויות אוכל ושתייה, כולל אוכל מהיר, מזון בריא, שתייה קרה וחמה, וגם אופציות לתזונה מיוחדת (צמחוני, טבעוני, ללא גלוטן). בינתיים, ניתן להביא אוכל מבחוץ ולאכול באזורי הפיקניק המיועדים. אנו גם מציעים שירותי קייטרינג לאירועים מיוחדים וימי הולדת.", 
+                    icon: "fas fa-utensils", 
+                    color: "bg-indigo-500", 
+                    category: "facilities"
+                },
+                { 
+                    id: "faq-10",
+                    question: "איזה מתקנים יש בפארק?", 
+                    answer: "בפארק יש מגוון רחב של מתקנים ואטרקציות: 1) מכוניות מתנגשות מהדגמים החדישים ביותר 2) משחקי אתגר וארקייד עם פרסים 3) מתקני שעשועים לקטנטנים 4) מסלולי מרוץ מיניאטוריים 5) אטרקציות אינטראקטיביות 6) פינות צילום מיוחדות 7) אזורי מנוחה ופיקניק. אנו מחדשים ומוסיפים מתקנים באופן תדיר, כך שבכל ביקור תוכלו למצוא משהו חדש ומרגש.", 
+                    icon: "fas fa-gamepad", 
+                    color: "bg-cyan-500", 
+                    category: "facilities"
+                },
+            ];
+
+            const faqContainer = document.getElementById('faq-container');
+            const noResults = document.getElementById('no-results');
+            const searchInput = document.getElementById('faq-search');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            let currentFilter = 'all';
+            
+            // Initial render of all FAQs
+            renderFAQs(faqs);
+            
+            // Function to create and render FAQ cards
+            function renderFAQs(faqsToRender) {
+                faqContainer.innerHTML = '';
+                
+                if (faqsToRender.length === 0) {
+                    noResults.classList.remove('hidden');
+                } else {
+                    noResults.classList.add('hidden');
+                    
+                    faqsToRender.forEach((faq, index) => {
+                        // Create FAQ card
+                        const faqCard = document.createElement('div');
+                        faqCard.id = faq.id;
+                        faqCard.className = 'faq-card bg-white rounded-2xl shadow-lg p-6 transform transition-all cursor-pointer';
+                        faqCard.setAttribute('data-aos', 'fade-up');
+                        faqCard.setAttribute('data-aos-delay', (index * 50).toString());
+                        faqCard.setAttribute('data-category', faq.category);
+                        
+                        // Create card content
+                        faqCard.innerHTML = `
+                            <div class="faq-header flex items-start justify-between">
+                                <div class="flex items-start">
+                                    <div class="faq-icon ${faq.color} text-white p-4 rounded-xl text-xl mr-4 flex-shrink-0">
+                                        <i class="${faq.icon}"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-bold text-gray-800">${faq.question}</h3>
+                                    </div>
+                                </div>
+                                <button class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-50 flex items-center justify-center text-primary-500 transform transition-transform">
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
+                            <div class="faq-answer pr-16">
+                                <p class="text-gray-600">${faq.answer}</p>
+                            </div>
+                        `;
+                        
+                        // Add to container
+                        faqContainer.appendChild(faqCard);
+                        
+                        // Add click event to toggle answer visibility
+                        faqCard.addEventListener('click', function() {
+                            this.classList.toggle('active');
+                            const chevron = this.querySelector('button i');
+                            if (this.classList.contains('active')) {
+                                chevron.classList.remove('fa-chevron-down');
+                                chevron.classList.add('fa-chevron-up');
+                            } else {
+                                chevron.classList.remove('fa-chevron-up');
+                                chevron.classList.add('fa-chevron-down');
+                            }
+                        });
+                    });
+                }
+            }
+            
+            // Search functionality
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase().trim();
+                
+                if (searchTerm === '') {
+                    // If search is empty, show all FAQs based on current category filter
+                    filterFAQs(currentFilter);
+                } else {
+                    // Filter FAQs by search term and current category
+                    const filteredFAQs = faqs.filter(faq => {
+                        const matchesSearch = faq.question.toLowerCase().includes(searchTerm) || 
+                                            faq.answer.toLowerCase().includes(searchTerm);
+                        const matchesCategory = currentFilter === 'all' || faq.category === currentFilter;
+                        
+                        return matchesSearch && matchesCategory;
+                    });
+                    
+                    renderFAQs(filteredFAQs);
+                }
+            });
+            
+            // Category filtering functionality
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Get category to filter by
+                    const category = this.getAttribute('data-category');
+                    currentFilter = category;
+                    
+                    // Filter FAQs
+                    filterFAQs(category);
+                });
+            });
+            
+            function filterFAQs(category) {
+                const searchTerm = searchInput.value.toLowerCase().trim();
+                
+                // Filter FAQs by category and current search term
+                const filteredFAQs = faqs.filter(faq => {
+                    const matchesCategory = category === 'all' || faq.category === category;
+                    const matchesSearch = searchTerm === '' || 
+                                        faq.question.toLowerCase().includes(searchTerm) || 
+                                        faq.answer.toLowerCase().includes(searchTerm);
+                    
+                    return matchesCategory && matchesSearch;
+                });
+                
+                renderFAQs(filteredFAQs);
+            }
+            
+            // Handle direct link to specific FAQ
+            if (window.location.hash) {
+                const faqId = window.location.hash.substring(1);
+                setTimeout(() => {
+                    const faqElement = document.getElementById(faqId);
+                    if (faqElement) {
+                        faqElement.classList.add('active');
+                        const chevron = faqElement.querySelector('button i');
+                        chevron.classList.remove('fa-chevron-down');
+                        chevron.classList.add('fa-chevron-up');
+                        
+                        // Scroll to the FAQ
+                        faqElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }, 1000); // Delay to ensure page is fully loaded
+            }
+            
+            // Quick link navigation
+            document.querySelectorAll('.featured-faq, .quick-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        // Trigger click to open if it's not already open
+                        if (!targetElement.classList.contains('active')) {
+                            targetElement.click();
+                        }
+                        
+                        // Scroll to the element
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

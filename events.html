@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>באמפר קאר אילת | הזמנת אירוע</title>
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" href="assets/favicons/favicon.ico" type="image/x-icon">
+    <!-- Accessibility Script -->
+    <script src="https://cdn.enable.co.il/licenses/enable-L304761e05ykaodz-0924-63383/init.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous">
+    <!-- Slick Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
+</head>
+
+<style>
+    /* Table Styles */
+    table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    td {
+        padding: 16px;
+    }
+
+    tr:first-child td:first-child {
+        border-top-left-radius: 15px;
+    }
+
+    tr:first-child td:last-child {
+        border-top-right-radius: 15px;
+    }
+
+    tr:last-child td:first-child {
+        border-bottom-left-radius: 15px;
+    }
+
+    tr:last-child td:last-child {
+        border-bottom-right-radius: 15px;
+    }
+
+    .text-white {
+        color: #ffffff;
+    }
+
+    .text-gray-800 {
+        color: #2d3748;
+    }
+
+    .font-bold {
+        font-weight: 700;
+    }
+
+    td {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #333;
+    }
+
+    tr:hover td {
+        background-color: #fdba74;
+    }
+
+    input#date {
+        text-align: right;
+    }
+
+    /* Success Message Animation */
+    #successMessage {
+        background: linear-gradient(270deg, #FFC107, #FF9800, #FF5722, #FF9800);
+        background-size: 600% 600%;
+        animation: gradientMove 3s ease infinite;
+    }
+
+    @keyframes gradientMove {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    #successMessage.fade-in {
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    #successMessage.fade-out {
+        animation: fadeOut 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeOut {
+        from { opacity: 1; transform: scale(1); }
+        to { opacity: 0; transform: scale(0.95); }
+    }
+</style>
+
+<body class="bg-gray-100 text-gray-900">
+
+
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Event Booking Section -->
+    <section class="container mx-auto py-20 text-center">
+        <h1 class="text-5xl font-bold mb-6 text-coral">הזמנת אירוע בבאמפר קאר אילת</h1>
+        <div class="separator" style="height: 3px; width: 80%; background: linear-gradient(45deg, rgba(255,193,7,1) 0%, rgba(255,87,34,1) 100%); margin: 0 auto 1.5rem auto; margin-top: 2rem;"></div>
+        <p class="text-xl mb-8 text-orangered">
+            מארגנים אירוע? הזמינו מקום עוד היום<br>
+            אנחנו נדאג שהאירוע שלכם יהיה בלתי נשכח!
+        </p>
+
+        <!-- Event Form -->
+        <form id="eventForm" action="send_events.php" method="POST" class="bg-white text-gray-800 p-8 rounded-lg shadow-lg max-w-xl mx-auto text-right" dir="rtl">
+            <div class="mb-4">
+                <label for="name" class="block mb-2 text-xl font-bold text-darkorange text-right">שם מלא</label>
+                <input type="text" id="name" name="name" class="w-full p-4 rounded-lg bg-gray-100" placeholder="השם שלך" required>
+            </div>
+            <div class="mb-4">
+                <label for="phone" class="block mb-2 text-xl font-bold text-darkorange text-right">מספר טלפון</label>
+                <input type="tel" id="phone" name="phone" class="w-full p-4 rounded-lg bg-gray-100 text-right" placeholder="מספר הטלפון שלך" dir="rtl" required>
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block mb-2 text-xl font-bold text-darkorange text-right">אימייל</label>
+                <input type="email" id="email" name="email" class="w-full p-4 rounded-lg bg-gray-100" placeholder="האימייל שלך" required>
+            </div>
+            <div class="mb-4">
+                <label for="date" class="block mb-2 text-xl font-bold text-darkorange text-right">תאריך האירוע</label>
+                <input type="date" id="date" name="date" class="w-full p-4 rounded-lg bg-gray-100" required>
+            </div>
+            <div class="mb-4">
+                <label for="details" class="block mb-2 text-xl font-bold text-darkorange text-right">פרטי האירוע</label>
+                <textarea id="details" name="details" rows="4" class="w-full p-4 rounded-lg bg-gray-100" placeholder="תארו את האירוע שלכם" required></textarea>
+            </div>
+            <div class="flex justify-center mt-8">
+                <button type="submit" class="text-white font-bold py-2 px-6 rounded-full transition duration-300 ease-in-out shadow-lg"
+                    style="background: linear-gradient(to right, #FFC107, #FF9800, #FF5722);">
+                    שלח טופס
+                </button>
+            </div>
+        </form>
+
+        <!-- Success Message -->
+        <div id="successMessage" class="hidden mt-8 p-4 rounded-full shadow-lg text-center text-xl font-bold text-white"
+            style="background: linear-gradient(to right, #FFC107, #FF9800, #FF5722);">
+            הטופס נשלח בהצלחה!
+        </div>
+    </section>
+
+
+    <!-- Price Table Section -->
+    <section class="container mx-auto py-20 text-center">
+        <h2 class="text-4xl font-bold mb-6 text-gray-800">מחירון באמפר קאר אילת</h2>
+        <div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg">
+            <table class="w-full text-center border-collapse rounded-lg overflow-hidden">
+                <tbody>
+                    <tr class="bg-orange-400 text-white">
+                        <td class="p-4 font-bold">מחיר נסיעה זוגית רגיל</td>
+                        <td class="p-4">35 ש״ח</td>
+                    </tr>
+                    <tr class="bg-orange-100">
+                        <td class="p-4 font-bold">מחיר למשחק בביתני המשחקים (קרניבל גיים)</td>
+                        <td class="p-4">20 ש״ח</td>
+                    </tr>
+                    <tr class="bg-orange-400 text-white">
+                        <td class="p-4 font-bold">3 משחקים</td>
+                        <td class="p-4">50 ש״ח</td>
+                    </tr>
+                    <tr style="background: linear-gradient(45deg, rgba(255,193,7,1) 0%, rgba(255, 86, 34, 0.651) 100%);">
+                        <td colspan="2" class="p-4 font-bold text-white">
+                            <a href="/contact.html" class="text-white" style="text-decoration: none;">
+                                להצעת מחיר לארוע יש ליצור קשר
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <!-- Slick Carousel JS -->
+
+    <!-- JS for form submission and footer/header loading -->
+    <script>
+        // Load header
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+                const hamburger = document.querySelector('.hamburger');
+                const navLinks = document.querySelector('.nav-links');
+                if (hamburger && navLinks) {
+                    hamburger.addEventListener('click', () => {
+                        navLinks.classList.toggle('active');
+                        hamburger.classList.toggle('open');
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error loading header:', error);
+            });
+
+        // Load footer
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
+
+        // Form submission handling
+        document.getElementById('eventForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            // Get form data
+            const formData = new FormData(this);
+
+            try {
+                const phpResponse = await fetch(this.action, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!phpResponse.ok) {
+                    throw new Error(`HTTP error! Status: ${phpResponse.status}`);
+                }
+
+                const result = await phpResponse.json();
+
+                if (result.status === 'success') {
+                    const successMessage = document.getElementById('successMessage');
+                    successMessage.classList.remove('hidden');
+                    successMessage.classList.add('fade-in');
+
+                    this.reset();  // Clear the form
+
+                    setTimeout(() => {
+                        successMessage.classList.add('fade-out');
+                        setTimeout(() => {
+                            successMessage.classList.add('hidden');
+                            successMessage.classList.remove('fade-out');
+                        }, 1000);
+                    }, 5000);
+                } else {
+                    alert(result.message || 'Failed to submit form.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('אירעה שגיאה. אנא נסה שוב מאוחר יותר.');
+            }
+        });
+    </script>
+</body>
+</html>
