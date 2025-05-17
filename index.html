@@ -352,6 +352,19 @@
             100% { transform: rotate(360deg); }
         }
         
+        /* Video player fallback */
+        .video-fallback {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5f5f5;
+            color: #666;
+            font-size: 1.2rem;
+            border-radius: 20px;
+        }
+        
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .shape {
@@ -404,13 +417,18 @@
                     </div>
                 </div>
                 
-                <!-- Hero Video -->
+                <!-- Hero Video - Fixed with iframe for YouTube fallback -->
                 <div class="w-full lg:w-1/2" data-aos="fade-right" data-aos-duration="1000">
                     <div class="video-container shadow-2xl">
-                        <video autoplay loop muted playsinline class="w-full h-full object-cover">
-                            <source src="assets/videos/hero-video.mp4" type="video/mp4">
-                            דפדפן זה אינו תומך בהצגת וידאו.
-                        </video>
+                        <iframe 
+                            width="100%" 
+                            height="400" 
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                            title="באמפר קאר אילת - סרטון תדמית" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                        </iframe>
                     </div>
                 </div>
             </div>
@@ -493,7 +511,7 @@
                 
                 <div class="w-full lg:w-1/2 order-1 lg:order-2 relative" data-aos="fade-left">
                     <img src="assets/images/about-us.jpg" alt="באמפר קאר אילת" class="rounded-2xl shadow-2xl w-full h-auto">
-                    <!-- Play button over image - can be removed if no video is available -->
+                    <!-- Play button over image that opens the modal -->
                     <button class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-20 h-20 rounded-full flex items-center justify-center shadow-lg hover:bg-primary-50 transition-all group" id="aboutVideoBtn">
                         <i class="fas fa-play text-primary-600 text-2xl group-hover:text-primary-700"></i>
                     </button>
@@ -806,15 +824,22 @@
 
     <!-- Modal Structure -->
     <div id="videoModal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center hidden">
-        <div class="modal-container bg-white rounded-2xl shadow-2xl p-4 relative w-full max-w-4xl">
+        <div class="modal-container bg-white rounded-2xl shadow-2xl p-6 relative w-full max-w-4xl mx-4">
             <button id="closeModalBtn" class="absolute -top-4 -right-4 bg-white text-primary-600 w-10 h-10 rounded-full shadow-lg flex items-center justify-center hover:bg-primary-50 transition-all z-10">
                 <i class="fas fa-times"></i>
             </button>
-            <div class="video-container rounded-xl overflow-hidden">
-                <video width="100%" controls id="modalVideo">
-                    <source src="assets/promotion-video.mp4" type="video/mp4">
-                    דפדפן זה אינו תומך בהצגת וידאו.
-                </video>
+            <div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden">
+                <!-- Using iframe for YouTube video -->
+                <iframe 
+                    id="modalVideo"
+                    width="100%" 
+                    height="500" 
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                    title="באמפר קאר אילת - סרטון תדמית" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
             </div>
         </div>
     </div>
@@ -861,23 +886,23 @@
             const openModalBtn = document.getElementById('openModalBtn');
             const aboutVideoBtn = document.getElementById('aboutVideoBtn');
             const closeModalBtn = document.getElementById('closeModalBtn');
-            const modalVideo = document.getElementById('modalVideo');
             
             function openModal() {
                 videoModal.classList.remove('hidden');
                 setTimeout(() => {
                     videoModal.classList.add('active');
                 }, 10);
-                modalVideo.play();
             }
             
             function closeModal() {
                 videoModal.classList.remove('active');
                 setTimeout(() => {
                     videoModal.classList.add('hidden');
+                    // Reset iframe src to stop video
+                    const iframe = document.getElementById('modalVideo');
+                    const iframeSrc = iframe.src;
+                    iframe.src = iframeSrc;
                 }, 300);
-                modalVideo.pause();
-                modalVideo.currentTime = 0;
             }
             
             if (openModalBtn) openModalBtn.addEventListener('click', openModal);
@@ -953,6 +978,27 @@
             })
             .catch(error => {
                 console.error('Error loading header:', error);
+                // Fallback for header in case it fails to load
+                document.getElementById('header').innerHTML = `
+                    <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-40 py-4">
+                        <div class="container mx-auto px-4">
+                            <div class="flex justify-between items-center">
+                                <a href="#" class="text-2xl font-bold text-primary-600">באמפר קאר אילת</a>
+                                <nav class="hidden md:block">
+                                    <ul class="flex gap-8">
+                                        <li><a href="#" class="font-medium hover:text-primary-600 transition-colors">דף הבית</a></li>
+                                        <li><a href="#about" class="font-medium hover:text-primary-600 transition-colors">אודות</a></li>
+                                        <li><a href="#activities" class="font-medium hover:text-primary-600 transition-colors">פעילויות</a></li>
+                                        <li><a href="#contact" class="font-medium hover:text-primary-600 transition-colors">צור קשר</a></li>
+                                    </ul>
+                                </nav>
+                                <button class="md:hidden">
+                                    <i class="fas fa-bars text-2xl"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </header>
+                `;
             });
 
         // Load footer
@@ -960,49 +1006,40 @@
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error loading footer:', error);
+                // Fallback for footer in case it fails to load
+                document.getElementById('footer').innerHTML = `
+                    <footer class="bg-gray-900 text-white py-12">
+                        <div class="container mx-auto px-4">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                <div>
+                                    <h3 class="text-xl font-bold mb-4">באמפר קאר אילת</h3>
+                                    <p class="text-gray-400">המקום המושלם לבילוי עם המשפחה והחברים.</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-4">פרטי קשר</h3>
+                                    <p class="text-gray-400">רח' התמרים 123, אילת</p>
+                                    <p class="text-gray-400">טלפון: 08-1234567</p>
+                                    <p class="text-gray-400">דוא"ל: info@bumpercar.co.il</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-4">עקבו אחרינו</h3>
+                                    <div class="flex gap-4">
+                                        <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-facebook"></i></a>
+                                        <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-instagram"></i></a>
+                                        <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-tiktok"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-500">
+                                <p>© כל הזכויות שמורות לבאמפר קאר אילת 2025</p>
+                            </div>
+                        </div>
+                    </footer>
+                `;
             });
-            
-        // Modal functionality for original modal
-        const videoModal = document.getElementById('videoModal');
-        const openModalBtn = document.getElementById('openModalBtn');
-        const closeModalBtn = document.getElementById('closeModalBtn');
-        const videoElement = videoModal.querySelector('video');
-        
-        if (openModalBtn && videoModal) {
-            openModalBtn.addEventListener('click', function() {
-                videoModal.classList.remove('hidden');
-                videoModal.classList.add('active');
-                if (videoElement) videoElement.play();
-            });
-        }
-        
-        if (closeModalBtn && videoModal) {
-            closeModalBtn.addEventListener('click', function() {
-                videoModal.classList.remove('active');
-                setTimeout(() => {
-                    videoModal.classList.add('hidden');
-                    if (videoElement) {
-                        videoElement.pause();
-                        videoElement.currentTime = 0;
-                    }
-                }, 300);
-            });
-        }
-        
-        if (videoModal) {
-            window.addEventListener('click', function(event) {
-                if (event.target === videoModal) {
-                    videoModal.classList.remove('active');
-                    setTimeout(() => {
-                        videoModal.classList.add('hidden');
-                        if (videoElement) {
-                            videoElement.pause();
-                            videoElement.currentTime = 0;
-                        }
-                    }, 300);
-                }
-            });
-        }
     </script>
 </body>
 </html>

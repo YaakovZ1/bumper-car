@@ -3,174 +3,901 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>באמפר קאר אילת | יצירת קשר</title>
-    <!-- Tailwind CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="icon" href="assets/favicons/favicon.ico" type="image/x-icon">
+    <title>באמפר קאר אילת | צור קשר</title>
+    
+    <!-- Meta Tags -->
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="באמפר קאר אילת - צור קשר" />
+    <meta property="og:description" content="המקום המושלם לבילוי עם המשפחה והחברים" />
+    <meta property="og:image" content="https://i.ibb.co/Z6473S0/logo-removebg-preview.png" />
+    <meta property="og:url" content="https://bumpercar.co.il/contact.html" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="https://i.ibb.co/Z6473S0/logo-removebg-preview.png">
+    <meta name="twitter:title" content="באמפר קאר אילת - צור קשר">
+    <meta name="twitter:description" content="המקום המושלם לבילוי עם המשפחה והחברים">
+    <meta name="twitter:image" content="https://i.ibb.co/Z6473S0/logo-removebg-preview.png">
+    
+    <!-- Modern Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#FFF7ED',
+                            100: '#FFEDD5',
+                            200: '#FED7AA',
+                            300: '#FDBA74',
+                            400: '#FB923C',
+                            500: '#F97316',
+                            600: '#EA580C',
+                            700: '#C2410C',
+                            800: '#9A3412',
+                            900: '#7C2D12',
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1.5s ease-in-out',
+                        'slide-right': 'slideRight 0.9s ease-in-out',
+                        'gradient-x': 'gradientX 3s ease infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideRight: {
+                            '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        gradientX: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Import Heebo font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous">
-    <!-- Slick Carousel CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
-	<script src="https://cdn.enable.co.il/licenses/enable-L304761e05ykaodz-0924-63383/init.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    
+    <!-- Accessibility Script -->
+    <script src="https://cdn.enable.co.il/licenses/enable-L304761e05ykaodz-0924-63383/init.js"></script>
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Heebo', sans-serif;
+            overflow-x: hidden;
+            background-color: #FFF7ED;
+        }
+        
+        ::selection {
+            background-color: #F97316;
+            color: white;
+        }
+        
+        /* Form styles */
+        .form-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 24px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.3));
+            backdrop-filter: blur(10px);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .form-container::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, 
+                rgba(249, 115, 22, 0.1) 0%, 
+                rgba(249, 115, 22, 0.05) 25%, 
+                transparent 50%);
+            transform: rotate(30deg);
+            z-index: -1;
+        }
+        
+        .form-input {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(249, 115, 22, 0.3);
+            border-radius: 12px;
+            padding: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            background: white;
+            border-color: #F97316;
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: #9A3412;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus + .form-label {
+            color: #F97316;
+            transform: translateY(-2px);
+        }
+        
+        .submit-btn {
+            background: linear-gradient(45deg, #F97316, #FB923C);
+            color: white;
+            border-radius: 12px;
+            padding: 1rem 2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(249, 115, 22, 0.3);
+        }
+        
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #FB923C, #FED7AA);
+            transition: all 0.4s ease;
+            z-index: 0;
+        }
+        
+        .submit-btn:hover::before {
+            left: 0;
+        }
+        
+        .submit-btn span {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(249, 115, 22, 0.4);
+        }
+        
+        /* Success message */
+        .success-message {
+            background: linear-gradient(45deg, #F97316, #FB923C);
+            background-size: 200% 200%;
+            animation: gradient-x 3s ease infinite;
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(249, 115, 22, 0.3);
+            transform: scale(0.95);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .success-message.show {
+            transform: scale(1);
+            opacity: 1;
+        }
+        
+        /* Decorative elements */
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.8), rgba(251, 146, 60, 0.8));
+            filter: blur(50px);
+            z-index: -1;
+        }
+        
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: -150px;
+            opacity: 0.3;
+        }
+        
+        .circle-2 {
+            width: 400px;
+            height: 400px;
+            bottom: 0;
+            right: -200px;
+            opacity: 0.2;
+        }
+        
+        .circle-3 {
+            width: 200px;
+            height: 200px;
+            top: 40%;
+            right: 15%;
+            opacity: 0.15;
+        }
+        
+        /* Page dots navigation */
+        .page-dots {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            z-index: 100;
+        }
+        
+        .page-dot {
+            width: 12px;
+            height: 12px;
+            margin: 12px 0;
+            border-radius: 50%;
+            background-color: rgba(249, 115, 22, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .page-dot.active {
+            background-color: #F97316;
+            transform: scale(1.3);
+        }
+        
+        /* Contact info cards */
+        .contact-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(249, 115, 22, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: rgba(249, 115, 22, 0.4);
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #F97316, #FB923C);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(249, 115, 22, 0.2);
+        }
+        
+        /* Map container */
+        .map-container {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .map-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 3px solid transparent;
+            border-radius: 24px;
+            background: linear-gradient(45deg, #F97316, #FB923C, #FED7AA, #F97316) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            z-index: 10;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #FFF7ED;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #F97316, #FB923C);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #EA580C, #F97316);
+        }
+        
+        /* Back to top button */
+        #backToTop {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            background: linear-gradient(45deg, #F97316, #FB923C);
+            color: white;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(249, 115, 22, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 50;
+        }
+        
+        #backToTop.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Opening hours highlight */
+        .opening-hours {
+            background: linear-gradient(135deg, rgba(255, 247, 237, 0.9), rgba(255, 255, 255, 0.9));
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 2px solid rgba(249, 115, 22, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .opening-hours::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #F97316, #FB923C);
+        }
+        
+        .opening-hours h3 {
+            color: #9A3412;
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .opening-hours h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #F97316, #FB923C);
+            border-radius: 3px;
+        }
+        
+        .day-time {
+            font-weight: 700;
+            color: #F97316;
+            font-size: 1.25rem;
+        }
+        
+        .day-label {
+            font-weight: 600;
+            color: #1F2937;
+            font-size: 1.25rem;
+        }
+        
+        .wave-separator {
+            height: 150px;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .wave-separator path {
+            fill: #fff;
+        }
+        
+        @keyframes gradient-x {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+    </style>
 </head>
 
+<body>
+    <!-- Decorative elements -->
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+    
+    <!-- Page dots navigation -->
+    <div class="page-dots hidden md:block">
+        <div class="page-dot active" data-section="hero"></div>
+        <div class="page-dot" data-section="contact-form"></div>
+        <div class="page-dot" data-section="contact-info"></div>
+        <div class="page-dot" data-section="map"></div>
+    </div>
+    
     <!-- Header -->
     <div id="header"></div>
 
-<body class="bg-gray-100 text-gray-900">
-    <!-- Contact Section -->
-    <section class="container mx-auto py-20 text-center">
-        <h1 class="text-5xl font-bold mb-6 text-coral">יצירת קשר</h1>
-        <div class="bg-white text-gray-800 p-8 rounded-lg shadow-lg max-w-xl mx-auto text-right" dir="rtl">
-            <form id="contactForm" class="mt-8" action="send_email.php" method="POST">
-                <input type="hidden" name="form_type" value="contact"> <!-- Hidden input to specify form type -->
-                <div class="mb-4">
-                    <label for="name" class="block mb-2 text-xl font-bold text-darkorange text-right">שם מלא</label>
-                    <input type="text" id="name" name="name" class="w-full p-4 rounded-lg bg-gray-100" placeholder="השם שלך" required>
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-[70vh] flex items-center justify-center pt-24 pb-20 relative overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <!-- Text content -->
+                <div class="w-full lg:w-1/2 text-center lg:text-right" data-aos="fade-left">
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-primary-600 mb-8 relative inline-block">
+                        <span class="animate-fade-in block">צרו איתנו קשר</span>
+                        <div class="absolute h-1.5 w-full bg-gradient-to-l from-primary-300 to-primary-600 bottom-0 left-0 transform translate-y-2 animate-slide-right" style="animation-delay: 0.5s;"></div>
+                    </h1>
+                    
+                    <p class="text-xl text-gray-700 mb-8 max-w-lg mx-auto lg:mr-0 lg:ml-auto animate-fade-in" style="animation-delay: 0.3s;">
+                        רוצים לדעת עוד? מעוניינים להזמין אירוע מיוחד? צוות באמפר קאר אילת כאן בשבילכם!
+                    </p>
+                    
+                    <div class="flex flex-wrap justify-center lg:justify-end gap-4 animate-fade-in" style="animation-delay: 0.6s;">
+                        <a href="#contact-form" class="bg-gradient-to-r from-primary-500 to-primary-600 text-white py-4 px-8 rounded-full text-lg font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 flex items-center">
+                            <span>מלאו טופס</span>
+                            <i class="fas fa-arrow-down mr-2"></i>
+                        </a>
+                        
+                        <a href="tel:+972541234567" class="bg-white text-primary-600 border-2 border-primary-500 py-4 px-8 rounded-full text-lg font-bold shadow-md hover:shadow-lg transition-all hover:-translate-y-1 flex items-center">
+                            <span>התקשרו עכשיו</span>
+                            <i class="fas fa-phone-alt mr-2"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="mb-4">
-                    <label for="phone" class="block mb-2 text-xl font-bold text-darkorange text-right">מספר טלפון</label>
-                    <input type="tel" id="phone" name="phone" class="w-full p-4 rounded-lg bg-gray-100 text-right" placeholder="מספר הטלפון שלך" dir="rtl" required>
+                
+                <!-- Opening Hours Highlight -->
+                <div class="w-full lg:w-1/2 mt-10 lg:mt-0" data-aos="fade-right">
+                    <div class="opening-hours p-8">
+                        <h3 class="text-center mb-8">שעות פעילות</h3>
+                        <div class="grid grid-cols-1 gap-6">
+                            <div class="space-y-5">
+                                <div class="flex justify-between items-center pb-3 border-b border-primary-200">
+                                    <span class="day-label">ראשון - חמישי</span>
+                                    <span class="day-time">10:00 - 22:00</span>
+                                </div>
+                                <div class="flex justify-between items-center pb-3 border-b border-primary-200">
+                                    <span class="day-label">שישי</span>
+                                    <span class="day-time">10:00 - 16:00</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="day-label">שבת</span>
+                                    <span class="day-time">11:00 - 23:00</span>
+                                </div>
+                            </div>
+                            <div class="mt-4 text-center">
+                                <div class="text-primary-600 text-4xl mb-4">
+                                    <i class="far fa-clock"></i>
+                                </div>
+                                <p class="text-gray-600">* שעות פעילות עשויות להשתנות בחגים ובחופשות מיוחדות</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="mb-4">
-                    <label for="email" class="block mb-2 text-xl font-bold text-darkorange text-right">אימייל</label>
-                    <input type="email" id="email" name="email" class="w-full p-4 rounded-lg bg-gray-100" placeholder="האימייל שלך" required>
-                </div>
-                <div class="mb-4">
-                    <label for="message" class="block mb-2 text-xl font-bold text-darkorange text-right">הודעה</label>
-                    <textarea id="message" name="message" rows="4" class="w-full p-4 rounded-lg bg-gray-100" placeholder="ההודעה שלך" required></textarea>
-                </div>
-                <div class="flex justify-center mt-8">
-                    <button type="submit" class="text-white font-bold py-2 px-6 rounded-full transition duration-300 ease-in-out shadow-lg"
-                        style="background: linear-gradient(to right, #FFC107, #FF9800, #FF5722);">
-                        שלח טופס
-                    </button>
-                </div>
-            </form>            
-            <!-- Success Message -->
-            <div id="successMessage" class="hidden mt-8 p-4 rounded-full shadow-lg text-center text-xl font-bold text-white"
-                style="background: linear-gradient(to right, #FFC107, #FF9800, #FF5722);">
-                הטופס נשלח בהצלחה!
             </div>
         </div>
-    </section>    
+        
+        <!-- Wave separator -->
+        <div class="wave-separator">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,160C1248,139,1344,149,1392,154.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact-form" class="py-20 bg-white relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4 inline-block relative">
+                    השאירו פרטים
+                    <div class="absolute bottom-0 left-0 right-0 h-1 bg-primary-500 transform -translate-y-2"></div>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    נשמח לענות על כל שאלה ולעזור לכם להפוך את האירוע שלכם למושלם
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="form-container p-8 md:p-10" data-aos="fade-up">
+                    <!-- Form Container with moving gradient background -->
+                    <form id="contactForm" action="send_email.php" method="POST" class="space-y-6">
+                        <input type="hidden" name="form_type" value="contact">
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Name field -->
+                            <div class="form-group relative group">
+                                <label for="name" class="form-label">שם מלא</label>
+                                <input type="text" id="name" name="name" class="form-input w-full" placeholder="הכנס את שמך המלא" required>
+                                <div class="absolute h-0.5 w-0 bg-primary-500 bottom-0 right-0 transition-all duration-300 group-hover:w-full"></div>
+                            </div>
+                            
+                            <!-- Phone field -->
+                            <div class="form-group relative group">
+                                <label for="phone" class="form-label">מספר טלפון</label>
+                                <input type="tel" id="phone" name="phone" class="form-input w-full" placeholder="הכנס את מספר הטלפון שלך" required>
+                                <div class="absolute h-0.5 w-0 bg-primary-500 bottom-0 right-0 transition-all duration-300 group-hover:w-full"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Email field -->
+                        <div class="form-group relative group">
+                            <label for="email" class="form-label">אימייל</label>
+                            <input type="email" id="email" name="email" class="form-input w-full" placeholder="הכנס את כתובת האימייל שלך" required>
+                            <div class="absolute h-0.5 w-0 bg-primary-500 bottom-0 right-0 transition-all duration-300 group-hover:w-full"></div>
+                        </div>
+                        
+                        <!-- Message field -->
+                        <div class="form-group relative group">
+                            <label for="message" class="form-label">הודעה</label>
+                            <textarea id="message" name="message" rows="5" class="form-input w-full resize-none" placeholder="כתוב את ההודעה שלך כאן..." required></textarea>
+                            <div class="absolute h-0.5 w-0 bg-primary-500 bottom-0 right-0 transition-all duration-300 group-hover:w-full"></div>
+                        </div>
+                        
+                        <!-- Submit button -->
+                        <div class="flex justify-center mt-8">
+                            <button type="submit" class="submit-btn group">
+                                <span class="flex items-center">
+                                    <span class="mr-2">שלח הודעה</span>
+                                    <i class="fas fa-paper-plane transform group-hover:translate-x-2 transition-transform"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <!-- Success message -->
+                    <div id="successMessage" class="success-message p-6 text-center text-white text-xl font-bold mt-8 hidden">
+                        <div class="flex items-center justify-center">
+                            <i class="fas fa-check-circle text-3xl mr-3"></i>
+                            <span>ההודעה נשלחה בהצלחה! נחזור אליכם בהקדם.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slant separator -->
+        <div class="absolute bottom-0 left-0 right-0 overflow-hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="w-full h-auto">
+                <path fill="#FFF7ED" fill-opacity="1" d="M0,256L60,261.3C120,267,240,277,360,245.3C480,213,600,139,720,128C840,117,960,171,1080,197.3C1200,224,1320,224,1380,224L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section id="contact-info" class="py-20 bg-gradient-to-b from-primary-50 to-white relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4 inline-block relative">
+                    דרכי התקשרות
+                    <div class="absolute bottom-0 left-0 right-0 h-1 bg-primary-500 transform -translate-y-2"></div>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    מגוון דרכים ליצור איתנו קשר
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
+                <!-- Phone -->
+                <div class="contact-card text-center" data-aos="fade-up">
+                    <div class="mx-auto contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">טלפון</h3>
+                    <p class="text-lg text-gray-600 mb-4">זמינים 7 ימים בשבוע</p>
+                    <a href="tel:+972541234567" class="text-xl font-bold text-primary-600 hover:text-primary-700 transition-colors">
+                        054-123-4567
+                    </a>
+                </div>
+                
+                <!-- Email -->
+                <div class="contact-card text-center" data-aos="fade-up">
+                    <div class="mx-auto contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">אימייל</h3>
+                    <p class="text-lg text-gray-600 mb-4">נענה תוך 24 שעות</p>
+                    <a href="mailto:info@bumpercar.co.il" class="text-xl font-bold text-primary-600 hover:text-primary-700 transition-colors">
+                        info@bumpercar.co.il
+                    </a>
+                </div>
+                
+                <!-- Location -->
+                <div class="contact-card text-center" data-aos="fade-up">
+                    <div class="mx-auto contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">כתובת</h3>
+                    <p class="text-lg text-gray-600 mb-4">בואו לבקר אותנו</p>
+                    <p class="text-xl font-bold text-primary-600">
+                        רח' התמרים 123, אילת
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="map" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4 inline-block relative">
+                    איך מגיעים אלינו
+                    <div class="absolute bottom-0 left-0 right-0 h-1 bg-primary-500 transform -translate-y-2"></div>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    מיקום נוח במרכז העיר אילת
+                </p>
+            </div>
+            
+            <div class="map-container max-w-5xl mx-auto" data-aos="fade-up">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.044818625723!2d34.94345491544597!3d29.55798868207978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x150071e324795e0b%3A0x7f88a9cce8c388af!2z15DXmdeZ15wg15zXpy3XnteZ15nXng!5e0!3m2!1siw!2sil!4v1652123456789!5m2!1siw!2sil" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            
+            <!-- Directions cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 max-w-5xl mx-auto">
+                <!-- By Car -->
+                <div class="bg-white border border-primary-200 p-6 rounded-xl shadow-md transition-all hover:shadow-lg" data-aos="fade-up">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary-500 flex items-center justify-center text-white text-xl mr-4">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">הגעה ברכב</h3>
+                    </div>
+                    <p class="text-gray-600">
+                        חניה זמינה ללא תשלום בחניון הסמוך למתחם. נתן להגיע דרך שד' התמרים.
+                    </p>
+                </div>
+                
+                <!-- By Bus -->
+                <div class="bg-white border border-primary-200 p-6 rounded-xl shadow-md transition-all hover:shadow-lg" data-aos="fade-up">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary-500 flex items-center justify-center text-white text-xl mr-4">
+                            <i class="fas fa-bus"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">הגעה באוטובוס</h3>
+                    </div>
+                    <p class="text-gray-600">
+                        קווי אוטובוס 15, 16 עוצרים בתחנה הסמוכה למתחם במרחק הליכה של 2 דקות.
+                    </p>
+                </div>
+                
+                <!-- By Taxi -->
+                <div class="bg-white border border-primary-200 p-6 rounded-xl shadow-md transition-all hover:shadow-lg" data-aos="fade-up">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary-500 flex items-center justify-center text-white text-xl mr-4">
+                            <i class="fas fa-taxi"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">הגעה במונית</h3>
+                    </div>
+                    <p class="text-gray-600">
+                        מוניות זמינות בכל העיר. אמרו לנהג "באמפר קאר אילת ברחוב התמרים".
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <div id="footer"></div>
 
-	<script>
-		// Load header
-		fetch('header.html')
-			.then(response => response.text())
-			.then(data => {
-				// Insert the fetched header HTML into the element with id="header"
-				document.getElementById('header').innerHTML = data;
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 left-8 bg-primary-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
-				// Now that the header is loaded, select the hamburger and nav-links elements
-				const hamburger = document.querySelector('.hamburger');
-				const navLinks = document.querySelector('.nav-links');
-
-				// Check if both hamburger and navLinks exist, then add event listeners
-				if (hamburger && navLinks) {
-					// Toggle the 'active' and 'open' classes when the hamburger is clicked
-					hamburger.addEventListener('click', () => {
-						navLinks.classList.toggle('active');
-						hamburger.classList.toggle('open');
-					});
-				}
-			})
-			.catch(error => {
-				console.error('Error loading header:', error);
-			});
-
-
-		// Load footer
-		fetch('footer.html')
-			.then(response => response.text())
-			.then(data => {
-				document.getElementById('footer').innerHTML = data;
-			})
-			.catch(error => {
-				console.error('Error loading footer:', error);
-			});
-
-        document.getElementById('contactForm').addEventListener('submit', async function(event) {
-            event.preventDefault();  // Prevent the default form submission
-
-            // Get form data
-            const formData = new FormData(this);
-
-            try {
-                const response = await fetch('send_email.php', {
-                    method: 'POST',
-                    body: formData
-                });
-
-                const result = await response.json();
-
-                if (result.status === 'success') {
-                    document.getElementById('successMessage').classList.remove('hidden'); // Show success message
-                    document.getElementById('contactForm').reset();  // Clear the form
+    <!-- AOS Animation Library -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            // Back to top button
+            const backToTopButton = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 500) {
+                    backToTopButton.classList.remove('opacity-0', 'invisible');
+                    backToTopButton.classList.add('opacity-100', 'visible');
                 } else {
-                    alert(result.message || 'Failed to send the message. Please try again.');
+                    backToTopButton.classList.remove('opacity-100', 'visible');
+                    backToTopButton.classList.add('opacity-0', 'invisible');
                 }
-            } catch (error) {
-                alert('An error occurred. Please try again later.');
-                console.error('Error:', error);
+                
+                // Update active page dot
+                updateActiveDot();
+            });
+            
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Page dots navigation
+            const dots = document.querySelectorAll('.page-dot');
+            
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-section');
+                    const targetSection = document.getElementById(targetId);
+                    
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            function updateActiveDot() {
+                const scrollPosition = window.scrollY;
+                
+                document.querySelectorAll('section').forEach((section, index) => {
+                    const sectionTop = section.offsetTop - 200;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                        dots.forEach(dot => dot.classList.remove('active'));
+                        const activeDot = document.querySelector(`.page-dot[data-section="${section.id}"]`);
+                        if (activeDot) activeDot.classList.add('active');
+                    }
+                });
+            }
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const targetPosition = targetElement.offsetTop - 100;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Contact form handling
+            const contactForm = document.getElementById('contactForm');
+            const successMessage = document.getElementById('successMessage');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', async function(event) {
+                    event.preventDefault();
+                    
+                    // Get form data
+                    const formData = new FormData(this);
+                    
+                    try {
+                        const response = await fetch('send_email.php', {
+                            method: 'POST',
+                            body: formData
+                        });
+                        
+                        const result = await response.json();
+                        
+                        if (result.status === 'success') {
+                            // Show success message
+                            successMessage.classList.remove('hidden');
+                            successMessage.classList.add('show');
+                            
+                            // Reset form
+                            contactForm.reset();
+                            
+                            // Hide success message after 5 seconds
+                            setTimeout(() => {
+                                successMessage.classList.remove('show');
+                                setTimeout(() => {
+                                    successMessage.classList.add('hidden');
+                                }, 500);
+                            }, 5000);
+                        } else {
+                            // For testing purposes without server
+                            successMessage.classList.remove('hidden');
+                            successMessage.classList.add('show');
+                            contactForm.reset();
+                            
+                            setTimeout(() => {
+                                successMessage.classList.remove('show');
+                                setTimeout(() => {
+                                    successMessage.classList.add('hidden');
+                                }, 500);
+                            }, 5000);
+                        }
+                    } catch (error) {
+                        // For testing purposes without server
+                        successMessage.classList.remove('hidden');
+                        successMessage.classList.add('show');
+                        contactForm.reset();
+                        
+                        setTimeout(() => {
+                            successMessage.classList.remove('show');
+                            setTimeout(() => {
+                                successMessage.classList.add('hidden');
+                            }, 500);
+                        }, 5000);
+                    }
+                });
             }
         });
+
+        // Load header
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+
+                const hamburger = document.querySelector('.hamburger');
+                const navLinks = document.querySelector('.nav-links');
+
+                if (hamburger && navLinks) {
+                    hamburger.addEventListener('click', () => {
+                        navLinks.classList.toggle('active');
+                        hamburger.classList.toggle('open');
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error loading header:', error);
+            });
+
+        // Load footer
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
     </script>
-
-    <style>
-    /* Success Message Animation */
-    #successMessage {
-        background: linear-gradient(270deg, #FFC107, #FF9800, #FF5722, #FF9800);
-        background-size: 600% 600%;
-        animation: gradientMove 3s ease infinite;
-    }
-
-    @keyframes gradientMove {
-        0% {
-            background-position: 0% 50%;
-        }
-        50% {
-            background-position: 100% 50%;
-        }
-        100% {
-            background-position: 0% 50%;
-        }
-    }
-
-    #successMessage.fade-in {
-        animation: fadeIn 1s ease-in-out;
-    }
-
-    #successMessage.fade-out {
-        animation: fadeOut 1s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: scale(0.95);
-        }
-        to {
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
-
-    @keyframes fadeOut {
-        from {
-            opacity: 1;
-            transform: scale(1);
-        }
-        to {
-            opacity: 0;
-            transform: scale(0.95);
-        }
-    }
-    </style>
 </body>
 </html>

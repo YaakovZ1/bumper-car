@@ -1,199 +1,639 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
-
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>באמפר קאר אילת | הטבות ומבצעים</title>
-    <!-- Tailwind CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="icon" href="assets/favicons/favicon.ico" type="image/x-icon">
-		<!-- Accessibility Script -->
-	<script src="https://cdn.enable.co.il/licenses/enable-L304761e05ykaodz-0924-63383/init.js"></script>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous">
-    <!-- Slick Carousel CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
+    
+    <!-- Meta Tags -->
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="באמפר קאר אילת - הטבות ומבצעים" />
+    <meta property="og:description" content="המקום המושלם לבילוי עם המשפחה והחברים" />
+    <meta property="og:image" content="https://i.ibb.co/Z6473S0/logo-removebg-preview.png" />
+    <meta property="og:url" content="https://bumpercar.co.il/prices.html" />
+    <meta property="og:type" content="website" />
 
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="https://i.ibb.co/Z6473S0/logo-removebg-preview.png">
+    <meta name="twitter:title" content="באמפר קאר אילת - הטבות ומבצעים">
+    <meta name="twitter:description" content="המקום המושלם לבילוי עם המשפחה והחברים">
+    <meta name="twitter:image" content="https://i.ibb.co/Z6473S0/logo-removebg-preview.png">
+    
+    <!-- Modern Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#FFF7ED',
+                            100: '#FFEDD5',
+                            200: '#FED7AA',
+                            300: '#FDBA74',
+                            400: '#FB923C',
+                            500: '#F97316',
+                            600: '#EA580C',
+                            700: '#C2410C',
+                            800: '#9A3412',
+                            900: '#7C2D12',
+                        },
+                        secondary: {
+                            500: '#6B7280',
+                            600: '#4B5563',
+                            700: '#374151',
+                            800: '#1F2937',
+                            900: '#111827',
+                        }
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 3s infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                        'wiggle': 'wiggle 1s ease-in-out infinite',
+                        'fade-in': 'fadeIn 1.5s ease-in-out',
+                        'slide-up': 'slideUp 0.9s ease-in-out',
+                        'slide-right': 'slideRight 0.9s ease-in-out',
+                        'slide-left': 'slideLeft 0.9s ease-in-out',
+                        'expand': 'expand 0.7s ease-out',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        wiggle: {
+                            '0%, 100%': { transform: 'rotate(-3deg)' },
+                            '50%': { transform: 'rotate(3deg)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(50px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        slideRight: {
+                            '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        slideLeft: {
+                            '0%': { transform: 'translateX(50px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        expand: {
+                            '0%': { transform: 'scale(0.8)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
+                        },
+                    }
+                }
+            },
+            variants: {
+                extend: {
+                    animation: ['hover', 'focus', 'group-hover'],
+                    transform: ['hover', 'focus', 'group-hover'],
+                    scale: ['hover', 'focus', 'group-hover'],
+                    translate: ['hover', 'focus', 'group-hover'],
+                },
+            },
+        }
+    </script>
+    
+    <!-- Import Heebo font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    
+    <!-- Accessibility Script -->
+    <script src="https://cdn.enable.co.il/licenses/enable-L304761e05ykaodz-0924-63383/init.js"></script>
+    
+    <!-- Custom Styles -->
     <style>
-        /* Table Styles */
-        table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            border-radius: 15px;
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Heebo', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        ::selection {
+            background-color: #F97316;
+            color: white;
+        }
+        
+        /* Modern button styles */
+        .btn-primary {
+            background: linear-gradient(135deg, #F97316, #EA580C);
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
             overflow: hidden;
         }
-
-        td {
-            padding: 16px;
+        
+        .btn-primary:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(135deg, #EA580C, #C2410C);
+            transition: all 0.4s ease;
+            z-index: -1;
         }
-
-        tr:first-child td:first-child {
-            border-top-left-radius: 15px;
-        }
-
-        tr:first-child td:last-child {
-            border-top-right-radius: 15px;
-        }
-
-        tr:last-child td:first-child {
-            border-bottom-left-radius: 15px;
-        }
-
-        tr:last-child td:last-child {
-            border-bottom-right-radius: 15px;
-        }
-
-        /* Colors */
-        .text-white {
-            color: #ffffff;
-        }
-
-        .text-gray-800 {
-            color: #2d3748;
-        }
-
-        .font-bold {
-            font-weight: 700;
-        }
-
-        td {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #333;
-        }
-
-        tr:hover td {
-            background-color: #fdba74;
-        }
-
-        .carousel {
+        
+        .btn-primary:hover:before {
             width: 100%;
-            max-width: 400px;
-            margin: 0 auto;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(234, 88, 12, 0.3);
+        }
+        
+        /* Page Header */
+        .page-header {
             position: relative;
+            background-color: #FFF7ED;
+            overflow: hidden;
         }
-
-        .carousel-inner {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .carousel-image {
+        
+        .page-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            max-width: 400px;
-            height: auto;
-            border-radius: 10px;
+            height: 100%;
+            background-image: radial-gradient(circle at 20% 30%, rgba(249, 115, 22, 0.1) 0%, transparent 70%),
+                            radial-gradient(circle at 80% 70%, rgba(234, 88, 12, 0.1) 0%, transparent 70%);
+            z-index: 0;
         }
-
-        .carousel-prev, .carousel-next {
-            cursor: pointer;
-            z-index: 10;
+        
+        .page-header-content {
+            position: relative;
+            z-index: 1;
         }
-
-        .carousel-prev, .carousel-next {
-            background-color: rgba(255, 87, 34, 0.75);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
+        
+        /* Price table styles */
+        .price-table {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .price-table:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+        
+        .price-row {
+            transition: all 0.3s ease;
+        }
+        
+        .price-row:hover {
+            transform: translateX(-5px);
+        }
+        
+        .price-row-highlight {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .price-row-highlight::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(249, 115, 22, 0.8), rgba(234, 88, 12, 0.8));
+            z-index: -1;
+        }
+        
+        /* Custom card styles */
+        .feature-card {
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .feature-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.2);
+        }
+        
+        /* Custom decorative elements */
+        .shape {
+            position: absolute;
+            z-index: 0;
+        }
+        
+        .shape-1 {
+            top: 15%;
+            left: 5%;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #F97316, #EA580C);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            opacity: 0.3;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .shape-2 {
+            bottom: 10%;
+            right: 5%;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #FB923C, #F97316);
+            border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+            opacity: 0.3;
+            animation: float 10s ease-in-out infinite 2s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #F97316, #FB923C);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #EA580C, #F97316);
+        }
+        
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 9999;
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: background-color 0.3s;
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
         }
-
-        .carousel-prev:hover, .carousel-next:hover {
-            background-color: rgba(255, 87, 34, 1);
+        
+        .preloader.fade-out {
+            opacity: 0;
+            visibility: hidden;
         }
-
-        @media (max-width: 640px) {
-            .carousel-prev, .carousel-next {
-                width: 30px;
-                height: 30px;
-                font-size: 18px;
+        
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #F97316;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .shape {
+                display: none;
             }
-        }
-
-        input#date {
-            text-align: right;
         }
     </style>
 </head>
 
-<body class="bg-gray-100 text-gray-900">
+<body class="bg-gray-50">
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
 
-    <!-- Custom Header -->
+    <!-- Decorative Shapes -->
+    <div class="shape shape-1 hidden md:block"></div>
+    <div class="shape shape-2 hidden md:block"></div>
+    
+    <!-- Header -->
     <div id="header"></div>
 
-
-    
-    <!-- Company Info Section -->
-    <section class="container mx-auto py-16 px-4 text-center">
-        <h2 class="text-4xl font-bold mb-4">באמפר קאר אילת</h2>
-        <p class="text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto">
-            באמפר קאר שמה דגש רב על חווית הלקוח. כל פעילויות החברה נועדו ליצור רגעים מהנים ובלתי נשכחים עבור הילדים והמשפחות. בנוסף, החברה מקפידה על עמידה בכל התקנים המחמירים לבטיחות, כדי להבטיח שכל ביקור אצלנו יהיה בטוח ומהנה.
-        </p>
-        <ul class="list-disc text-xl mt-8 text-gray-700 max-w-4xl mx-auto text-right space-y-4">
-            <li><span class="font-bold text-darkorange">מכוניות מתנגשות:</span> האטרקציה המרכזית בה ילדים יכולים ליהנות מהחוויה של נהיגה והתנגשות זה בזה בסביבה בטוחה ומבוקרת.</li>
-            <li><span class="font-bold text-darkorange">אתגרי משחקים:</span> בנוסף למכוניות המתנגשות, המקום מציע מגוון אתגרי משחקים שמעסיקים את הילדים בפעילויות כיפיות ותחרותיות.</li>
-        </ul>
-    </section>
-
-
-    <!-- Price Table Section -->
-    <section class="container mx-auto py-20 text-center">
-        <h2 class="text-4xl font-bold mb-6 text-gray-800">מחירון באמפר קאר אילת</h2>
-        <div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg">
-            <table class="w-full text-center border-collapse rounded-lg overflow-hidden">
-                <tbody>
-                    <tr class="bg-orange-400 text-white">
-                        <td class="p-4 font-bold">מחיר נסיעה זוגית רגיל</td>
-                        <td class="p-4">35 ש״ח</td>
-                    </tr>
-                    <tr class="bg-orange-100">
-                        <td class="p-4 font-bold">מחיר למשחק בביתני המשחקים (קרניבל גיים)</td>
-                        <td class="p-4">20 ש״ח</td>
-                    </tr>
-                    <tr class="bg-orange-400 text-white">
-                        <td class="p-4 font-bold">3 משחקים</td>
-                        <td class="p-4">50 ש״ח</td>
-                    </tr>
-                    <tr style="background-color: #fdba74;">
-                        <td colspan="2" class="p-4 font-bold text-white">
-                            <a href="/contact.html" class="text-white" style="text-decoration: none;">
-                                להצעת מחיר לארוע יש ליצור קשר
-                            </a>
-                        </td>
-                    </tr>
-                    
-                    
-                </tbody>
-            </table>
+    <!-- Page Header -->
+    <section class="page-header pt-32 pb-20">
+        <div class="container mx-auto px-4 page-header-content">
+            <div class="text-center">
+                <h1 class="text-5xl md:text-6xl font-extrabold text-primary-600 mb-6 animate-fade-in">
+                    הטבות ומבצעים
+                </h1>
+                <p class="text-xl text-gray-700 max-w-3xl mx-auto animate-fade-in" style="animation-delay: 0.3s;">
+                    אצלנו בבאמפר קאר אילת תוכלו ליהנות מחוויה בלתי נשכחת במחירים משתלמים!
+                </p>
+            </div>
         </div>
     </section>
 
-    <!-- Custom Footer -->
+    <!-- Company Info Section -->
+    <section class="py-16 bg-white relative overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4 inline-block relative">
+                        באמפר קאר אילת
+                        <div class="absolute bottom-0 left-0 right-0 h-1 bg-primary-500 transform -translate-y-2"></div>
+                    </h2>
+                </div>
+                
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <p class="text-xl text-gray-700 leading-relaxed mb-12">
+                        באמפר קאר שמה דגש רב על חווית הלקוח. כל פעילויות החברה נועדו ליצור רגעים מהנים ובלתי נשכחים עבור הילדים והמשפחות. בנוסף, החברה מקפידה על עמידה בכל התקנים המחמירים לבטיחות, כדי להבטיח שכל ביקור אצלנו יהיה בטוח ומהנה.
+                    </p>
+                </div>
+                
+                <!-- Features Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Feature 1 -->
+                    <div class="feature-card bg-primary-50 p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="w-16 h-16 rounded-full bg-primary-500 flex items-center justify-center text-white text-2xl mr-4 feature-icon">
+                                <i class="fas fa-car-crash"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-primary-600">מכוניות מתנגשות</h3>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">
+                            האטרקציה המרכזית בה ילדים יכולים ליהנות מהחוויה של נהיגה והתנגשות זה בזה בסביבה בטוחה ומבוקרת.
+                        </p>
+                    </div>
+                    
+                    <!-- Feature 2 -->
+                    <div class="feature-card bg-primary-50 p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="w-16 h-16 rounded-full bg-primary-500 flex items-center justify-center text-white text-2xl mr-4 feature-icon">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-primary-600">אתגרי משחקים</h3>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">
+                            בנוסף למכוניות המתנגשות, המקום מציע מגוון אתגרי משחקים שמעסיקים את הילדים בפעילויות כיפיות ותחרותיות.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Price Table Section -->
+    <section class="py-20 bg-gray-50 relative overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4 inline-block relative">
+                    מחירון באמפר קאר אילת
+                    <div class="absolute bottom-0 left-0 right-0 h-1 bg-primary-500 transform -translate-y-2"></div>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    מחירים הוגנים לחוויה בלתי נשכחת
+                </p>
+            </div>
+            
+            <div class="max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-white p-8 rounded-3xl shadow-xl price-table">
+                    <!-- Price row 1 -->
+                    <div class="price-row flex justify-between items-center bg-gradient-to-r from-primary-500 to-primary-600 text-white p-6 rounded-t-xl">
+                        <div class="text-xl font-bold">מחיר נסיעה זוגית רגיל</div>
+                        <div class="text-2xl font-black">35 ₪</div>
+                    </div>
+                    
+                    <!-- Price row 2 -->
+                    <div class="price-row flex justify-between items-center bg-primary-50 p-6 border-b border-gray-100">
+                        <div class="text-xl font-bold text-gray-800">מחיר למשחק בביתני המשחקים (קרניבל גיים)</div>
+                        <div class="text-2xl font-black text-primary-600">20 ₪</div>
+                    </div>
+                    
+                    <!-- Price row 3 -->
+                    <div class="price-row flex justify-between items-center bg-gradient-to-r from-primary-500 to-primary-600 text-white p-6">
+                        <div class="text-xl font-bold">3 משחקים</div>
+                        <div class="text-2xl font-black">50 ₪</div>
+                    </div>
+                    
+                    <!-- Call to action -->
+                    <div class="price-row-highlight p-6 bg-gradient-to-r from-primary-400 to-primary-500 text-white text-center rounded-b-xl">
+                        <a href="/contact.html" class="inline-flex items-center text-xl font-bold hover:underline">
+                            להצעת מחיר לארוע יש ליצור קשר
+                            <i class="fas fa-arrow-left mr-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional packages -->
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Package 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg transform transition-all hover:-translate-y-2 hover:shadow-xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-primary-500 text-3xl mb-4">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">חבילת יום הולדת</h3>
+                    <p class="text-gray-600 mb-6">מחגיגים יום הולדת? קבלו הנחה מיוחדת ל-10 ילדים או יותר!</p>
+                    <a href="/contact.html" class="text-primary-600 font-bold flex items-center hover:text-primary-700 transition-colors">
+                        לפרטים נוספים
+                        <i class="fas fa-arrow-left mr-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Package 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg transform transition-all hover:-translate-y-2 hover:shadow-xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-primary-500 text-3xl mb-4">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">חבילת קבוצות</h3>
+                    <p class="text-gray-600 mb-6">מגיעים בקבוצה גדולה? נהנים מהנחות מיוחדות על כל הפעילויות!</p>
+                    <a href="/contact.html" class="text-primary-600 font-bold flex items-center hover:text-primary-700 transition-colors">
+                        לפרטים נוספים
+                        <i class="fas fa-arrow-left mr-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Package 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg transform transition-all hover:-translate-y-2 hover:shadow-xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-primary-500 text-3xl mb-4">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">חבילת VIP</h3>
+                    <p class="text-gray-600 mb-6">רוצים חוויה מיוחדת ובלעדית? חבילת ה-VIP שלנו כוללת תשומת לב אישית.</p>
+                    <a href="/contact.html" class="text-primary-600 font-bold flex items-center hover:text-primary-700 transition-colors">
+                        לפרטים נוספים
+                        <i class="fas fa-arrow-left mr-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Promotion Banner -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="bg-gradient-to-r from-primary-600 to-primary-700 rounded-2xl p-8 md:p-12 shadow-xl" data-aos="fade-up">
+                <div class="flex flex-col md:flex-row items-center justify-between">
+                    <div class="mb-6 md:mb-0">
+                        <h3 class="text-3xl font-bold text-white mb-2">מבצע מיוחד לחודש זה!</h3>
+                        <p class="text-primary-100">הזמינו 4 נסיעות ושלמו רק על 3 - הנחה של 25%!</p>
+                    </div>
+                    <a href="/contact.html" class="bg-white text-primary-600 py-3 px-8 rounded-full font-bold hover:bg-primary-50 transition-all shadow-lg transform hover:-translate-y-1">
+                        להזמנת כרטיסים
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4 inline-block relative">
+                    שאלות נפוצות
+                    <div class="absolute bottom-0 left-0 right-0 h-1 bg-primary-500 transform -translate-y-2"></div>
+                </h2>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-6" data-aos="fade-up" data-aos-delay="100">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="text-xl font-bold text-primary-600 mb-2">האם צריך להזמין מקום מראש?</h3>
+                    <p class="text-gray-700">לא חובה, אבל מומלץ לקבוצות גדולות ובסופי שבוע עמוסים. ניתן להזמין מקום דרך דף יצירת הקשר או בטלפון.</p>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="text-xl font-bold text-primary-600 mb-2">מה גיל המינימום לנהיגה במכוניות המתנגשות?</h3>
+                    <p class="text-gray-700">ילדים מגיל 5 ומעלה יכולים לנהוג במכוניות בליווי מבוגר. ילדים מגיל 8 יכולים לנהוג באופן עצמאי.</p>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="text-xl font-bold text-primary-600 mb-2">האם ניתן לארגן אצלכם ימי הולדת?</h3>
+                    <p class="text-gray-700">בהחלט! יש לנו חבילות מיוחדות לימי הולדת הכוללות מגוון פעילויות, מתנות ואפילו עוגה. צרו איתנו קשר לתיאום.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
     <div id="footer"></div>
 
-    <!-- Slick Carousel JS and Placeholder Logic -->
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 left-8 bg-primary-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- AOS Animation Library -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    
+    <!-- Custom Scripts -->
     <script>
+        // Initialize AOS animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            // Preloader
+            const preloader = document.querySelector('.preloader');
+            setTimeout(() => {
+                preloader.classList.add('fade-out');
+            }, 800);
+            
+            // Back to top button
+            const backToTopButton = document.getElementById('backToTop');
+            
+            if (backToTopButton) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 500) {
+                        backToTopButton.classList.remove('opacity-0', 'invisible');
+                        backToTopButton.classList.add('opacity-100', 'visible');
+                    } else {
+                        backToTopButton.classList.remove('opacity-100', 'visible');
+                        backToTopButton.classList.add('opacity-0', 'invisible');
+                    }
+                });
+                
+                backToTopButton.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - 100;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+
         // Load header
         fetch('header.html')
             .then(response => response.text())
             .then(data => {
-                // Insert the fetched header HTML into the element with id="header"
                 document.getElementById('header').innerHTML = data;
 
-                // Now that the header is loaded, select the hamburger and nav-links elements
                 const hamburger = document.querySelector('.hamburger');
                 const navLinks = document.querySelector('.nav-links');
 
-                // Check if both hamburger and navLinks exist, then add event listeners
                 if (hamburger && navLinks) {
-                    // Toggle the 'active' and 'open' classes when the hamburger is clicked
                     hamburger.addEventListener('click', () => {
                         navLinks.classList.toggle('active');
                         hamburger.classList.toggle('open');
@@ -204,28 +644,12 @@
                 console.error('Error loading header:', error);
             });
 
-
         // Load footer
         fetch('footer.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer').innerHTML = data;
             });
-
-        document.addEventListener("DOMContentLoaded", function() {
-            // Set a custom placeholder for the date input
-            var dateInput = document.getElementById('date');
-            dateInput.placeholder = "בחרו תאריך";
-            
-            dateInput.onfocus = function() {
-                this.placeholder = "";
-            };
-            dateInput.onblur = function() {
-                this.placeholder = "בחרו תאריך";
-            };
-        });
     </script>
-
 </body>
-
 </html>
